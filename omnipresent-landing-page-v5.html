@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Smart Website in 48 Hours | Omnipresent</title>
+<meta name="description" content="I'll build you a premium website in 48 hours — free. You pay $297/mo for the system that turns visitors into phone calls.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#000;--bg1:#0a0a0a;--bg2:#111;--bg3:#161616;--bg4:#0e0e0e;
+  --t1:#f5f5f7;--t2:#a1a1a6;--t3:#6e6e73;--t4:#48484a;
+  --blue:#2997ff;--blue2:#40a9ff;--blue-g:rgba(41,151,255,.10);--blue-gm:rgba(41,151,255,.18);
+  --green:#30d158;--green-s:rgba(48,209,88,.08);
+  --red-s:rgba(255,69,58,.06);
+  --gold:#ffd60a;
+  --b:rgba(255,255,255,.06);--b2:rgba(255,255,255,.04);--b3:rgba(255,255,255,.12);
+  --r:12px;--rl:16px;--rx:20px;
+  --f:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--f);background:var(--bg);color:var(--t1);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:'ss01' on,'cv01' on}
+
+.amb{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.gl{position:absolute;border-radius:50%;filter:blur(120px)}
+.gl-1{width:500px;height:500px;background:radial-gradient(circle,rgba(41,151,255,.07) 0%,transparent 70%);top:-180px;right:-100px;animation:f1 22s ease-in-out infinite}
+.gl-2{width:400px;height:400px;background:radial-gradient(circle,rgba(48,209,88,.04) 0%,transparent 70%);bottom:30%;left:-150px;animation:f2 28s ease-in-out infinite}
+@keyframes f1{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,30px)}}
+@keyframes f2{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
+
+.pg{position:relative;z-index:1}
+.w{max-width:640px;margin:0 auto;padding:0 24px}
+.s{padding:72px 0}
+@media(max-width:640px){.s{padding:52px 0}.w{padding:0 20px}}
+
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pu{0%,100%{box-shadow:0 0 0 0 rgba(41,151,255,.25)}50%{box-shadow:0 0 0 10px rgba(41,151,255,0)}}
+.r{opacity:0;transform:translateY(24px);transition:opacity .65s cubic-bezier(.25,1,.5,1),transform .65s cubic-bezier(.25,1,.5,1)}
+.r.v{opacity:1;transform:translateY(0)}
+
+.bar{background:var(--blue);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:600;letter-spacing:-.01em}
+
+/* Hero */
+.hero{padding:52px 0 44px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:7px;background:var(--bg2);border:1px solid var(--b);border-radius:100px;padding:6px 14px 6px 10px;font-size:13px;font-weight:500;color:var(--t2);margin-bottom:28px;animation:up .6s cubic-bezier(.25,1,.5,1) .1s both}
+.badge-s{color:var(--gold);font-size:11px;letter-spacing:1px}
+.hero h1{font-size:clamp(28px,7.5vw,48px);font-weight:700;line-height:1.1;letter-spacing:-.035em;margin-bottom:18px;animation:up .6s cubic-bezier(.25,1,.5,1) .15s both}
+.hero h1 .em{color:var(--blue)}
+.hero-p{font-size:clamp(15px,3.8vw,17px);font-weight:400;color:var(--t2);max-width:500px;margin:0 auto 36px;line-height:1.65;letter-spacing:-.01em;animation:up .6s cubic-bezier(.25,1,.5,1) .2s both}
+
+/* VSL */
+.vsl-w{animation:up .6s cubic-bezier(.25,1,.5,1) .3s both;margin-bottom:36px}
+.vsl{position:relative;width:100%;padding-top:56.25%;border-radius:var(--rl);overflow:hidden;background:var(--bg2);border:1px solid var(--b);box-shadow:0 0 0 1px rgba(255,255,255,.02),0 20px 60px rgba(0,0,0,.5)}
+.vsl iframe,.vsl video{position:absolute;inset:0;width:100%;height:100%;border:none}
+.vsl-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:linear-gradient(145deg,#0c0c0c 0%,#111 50%,#0a0a0a 100%)}
+.vsl-ph:hover .play{transform:scale(1.06)}
+.play{width:72px;height:72px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:12px;animation:pu 2.4s ease infinite;transition:transform .25s cubic-bezier(.25,1,.5,1);box-shadow:0 4px 24px rgba(41,151,255,.3)}
+.play svg{width:26px;height:26px;fill:#fff;margin-left:3px}
+.vsl-t{font-size:13px;color:var(--t3);font-weight:500}
+.vsl-m{text-align:center;font-size:12px;color:var(--t4);margin-top:12px}
+
+/* CTA */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:#fff;font-family:var(--f);font-size:16px;font-weight:600;padding:16px 32px;border-radius:var(--r);border:none;cursor:pointer;text-decoration:none;width:100%;max-width:380px;letter-spacing:-.01em;transition:all .2s cubic-bezier(.25,1,.5,1);box-shadow:0 1px 3px rgba(0,0,0,.3),0 4px 16px rgba(41,151,255,.2)}
+.cta:hover{background:var(--blue2);transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,.3),0 8px 24px rgba(41,151,255,.25)}
+.cta:active{transform:translateY(0)}
+.cta svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.mi{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:14px;font-size:12px;color:var(--t4)}
+.mi span{display:inline-flex;align-items:center;gap:4px}
+.mi .ck{color:var(--green);font-weight:600;font-size:11px}
+.hcta{display:flex;flex-direction:column;align-items:center;animation:up .6s cubic-bezier(.25,1,.5,1) .4s both}
+
+.dv{height:1px;background:linear-gradient(90deg,transparent,var(--b),transparent)}
+
+/* Stats */
+.stats{background:var(--bg1);padding:40px 0}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
+@media(max-width:520px){.sg{grid-template-columns:1fr;gap:24px}}
+.sn{font-size:34px;font-weight:700;letter-spacing:-.03em;color:#ff6961;line-height:1.1;margin-bottom:4px}
+.sl{font-size:13px;color:var(--t3);line-height:1.4}
+
+/* Section elements */
+.tag{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:12px;display:inline-block}
+.h2{font-size:clamp(22px,5.5vw,34px);font-weight:700;line-height:1.15;letter-spacing:-.03em;margin-bottom:18px}
+.p{font-size:15px;font-weight:400;color:var(--t2);line-height:1.7;letter-spacing:-.01em}
+
+/* Compare */
+.cmp{margin-top:32px;display:flex;flex-direction:column;gap:8px}
+.cmph{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+.cmph span{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.cmph .o{color:var(--t4)}.cmph .n{color:var(--green)}
+.cr{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cc{padding:13px 14px;border-radius:10px;font-size:14px;line-height:1.45;display:flex;align-items:flex-start;gap:8px}
+.cc.o{background:var(--red-s);border:1px solid rgba(255,69,58,.06);color:var(--t3)}
+.cc.n{background:var(--green-s);border:1px solid rgba(48,209,88,.08);color:var(--t1)}
+.cc .ic{flex-shrink:0;font-size:12px;margin-top:2px}
+@media(max-width:480px){.cmph{display:none}.cr{grid-template-columns:1fr;gap:4px}.cc{flex-direction:column;gap:0}.cc::before{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}.cc.o::before{content:'Typical site';color:var(--t4)}.cc.n::before{content:'Smart Website';color:var(--green)}}
+
+/* Testimonials */
+.tsec{background:var(--bg1)}
+.tc{background:var(--bg2);border:1px solid var(--b);border-radius:var(--r);padding:24px;margin-bottom:12px;transition:border-color .25s}
+.tc:hover{border-color:var(--b3)}
+.ts{color:var(--gold);font-size:12px;letter-spacing:1.5px;margin-bottom:12px}
+.tq{font-size:15px;color:var(--t2);line-height:1.7;margin-bottom:16px;letter-spacing:-.01em}
+.tq strong{font-weight:600;color:var(--t1)}
+.tw{display:flex;align-items:center;gap:10px}
+.ta{width:36px;height:36px;border-radius:50%;background:var(--bg3);border:1px solid var(--b);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px;color:var(--blue)}
+.tn{font-size:13px;font-weight:600}.tr{font-size:11px;color:var(--t4)}
+.pb{text-align:center;margin-top:20px;padding-top:20px;border-top:1px solid var(--b);font-size:13px;color:var(--t4)}
+.pb strong{color:var(--gold);font-weight:600}
+
+/* Steps */
+.steps{margin-top:28px}
+.step{display:flex;gap:16px;margin-bottom:28px}
+.step:last-child{margin-bottom:0}
+.step-n{width:36px;height:36px;min-width:36px;border-radius:10px;background:var(--blue-g);border:1px solid rgba(41,151,255,.1);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--blue);margin-top:1px}
+.step h3{font-size:16px;font-weight:600;letter-spacing:-.02em;margin-bottom:3px}
+.step p{font-size:14px;color:var(--t2);line-height:1.6}
+
+/* Offer */
+.osec{background:var(--bg1)}
+.oc{background:var(--bg2);border:1px solid var(--b3);border-radius:var(--rx);padding:36px 28px;text-align:center;position:relative;overflow:hidden}
+.oc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 10%,var(--blue) 50%,transparent 90%)}
+.ob{margin:24px 0 16px}
+.ol{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.ol.f{color:var(--green)}.ol.m{color:var(--blue)}
+.on{font-size:42px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.on.g{color:var(--green)}
+.on .pr{font-size:16px;color:var(--t4);font-weight:400}
+.oil{text-align:left;list-style:none;margin:16px 0;padding:0}
+.oil li{font-size:14px;color:var(--t2);padding:6px 0 6px 22px;position:relative;line-height:1.5}
+.oil li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;font-size:13px}
+.oline{height:1px;background:var(--b);margin:8px 0}
+.onote{margin-top:18px;font-size:12px;color:var(--t4)}
+
+/* FAQ */
+.fq{border-bottom:1px solid var(--b);padding:20px 0;cursor:pointer}
+.fq:first-child{border-top:1px solid var(--b)}
+.fqq{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:15px;font-weight:500;letter-spacing:-.01em;user-select:none}
+.fqi{width:26px;height:26px;min-width:26px;border-radius:50%;background:var(--bg2);border:1px solid var(--b);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--t4);transition:transform .3s cubic-bezier(.25,1,.5,1),background .25s,color .25s}
+.fq.open .fqi{transform:rotate(45deg);background:var(--blue-g);color:var(--blue)}
+.fqa{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.25,1,.5,1);font-size:14px;color:var(--t2);line-height:1.7;letter-spacing:-.01em}
+.fq.open .fqa{max-height:250px;padding-top:12px}
+
+/* Final CTA */
+.fin{padding-bottom:100px}
+.cbf{background:var(--bg2);border:1px solid var(--b);border-radius:var(--r);padding:24px;margin-top:24px;max-width:360px;margin-left:auto;margin-right:auto}
+.cbl{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--t4);margin-bottom:6px;text-align:left}
+.cbi{width:100%;padding:13px 14px;background:var(--bg4);border:1px solid var(--b);border-radius:10px;color:var(--t1);font-family:var(--f);font-size:15px;margin-bottom:12px;outline:none;transition:border-color .2s,box-shadow .2s}
+.cbi:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-g)}
+.cbi::placeholder{color:var(--t4)}
+.cbb{width:100%;padding:15px;background:var(--green);color:#000;font-family:var(--f);font-size:15px;font-weight:600;border:none;border-radius:10px;cursor:pointer;transition:opacity .2s,transform .15s;letter-spacing:-.01em}
+.cbb:hover{opacity:.9;transform:translateY(-1px)}
+.cbn{font-size:11px;color:var(--t4);margin-top:10px;text-align:center}
+.orl{display:flex;align-items:center;gap:12px;margin:20px auto;max-width:360px}
+.orl::before,.orl::after{content:'';flex:1;height:1px;background:var(--b)}
+.orl span{font-size:11px;color:var(--t4);text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+
+footer{padding:32px 0;text-align:center;font-size:12px;color:var(--t4);border-top:1px solid var(--b2)}
+
+.sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:12px 16px;border-top:1px solid var(--b);z-index:100;transform:translateY(100%);transition:transform .3s cubic-bezier(.25,1,.5,1);display:flex;justify-content:center}
+.sticky.on{transform:translateY(0)}
+.sticky .cta{max-width:320px;padding:14px 20px;font-size:14px}
+@media(min-width:768px){.sticky{display:none}}
+</style>
+</head>
+<body>
+
+<div class="amb" aria-hidden="true"><div class="gl gl-1"></div><div class="gl gl-2"></div></div>
+
+<div class="pg">
+
+<div class="bar">🔒 Accepting 5 new clients this month</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="w">
+  <div class="badge"><span class="badge-s">★★★★★</span> 4.9 from 340+ business owners</div>
+
+  <h1>Your website is losing you customers.<br><span class="em">Let's fix that in 48 hours.</span></h1>
+
+  <p class="hero-p">I'll replace your website with one that actually generates leads — premium design, built to convert, live in two days. The build is free. You only pay for the system that keeps your phone ringing.</p>
+
+  <div class="vsl-w">
+    <div class="vsl">
+      <!-- ★ REPLACE with your video embed (Wistia/Vimeo/YouTube) ★ -->
+      <div class="vsl-ph" id="vslPh" role="button" tabindex="0" aria-label="Play video">
+        <div class="play"><svg viewBox="0 0 24 24"><polygon points="9,5 20,12 9,19"/></svg></div>
+        <span class="vsl-t">See how it works — 2 min</span>
+      </div>
+    </div>
+    <p class="vsl-m">Short version. Your time matters.</p>
+  </div>
+
+  <div class="hcta">
+    <a href="#book" class="cta">Get My Free Smart Website <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <div class="mi">
+      <span><span class="ck">✓</span> $0 upfront</span>
+      <span><span class="ck">✓</span> Live in 48 hrs</span>
+      <span><span class="ck">✓</span> 15-min call</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="dv"></div>
+<section class="stats">
+<div class="w">
+  <div class="sg">
+    <div class="r"><div class="sn">62%</div><div class="sl">of calls to small businesses go unanswered</div></div>
+    <div class="r"><div class="sn">$2K+</div><div class="sl">lost per lead that calls your competitor instead</div></div>
+    <div class="r"><div class="sn">5 sec</div><div class="sl">before a visitor decides to stay or hit the back button</div></div>
+  </div>
+</div>
+</section>
+<div class="dv"></div>
+
+<!-- ===== PROBLEM ===== -->
+<section class="s">
+<div class="w">
+  <div class="r">
+    <span class="tag">The silent revenue leak</span>
+    <h2 class="h2">You're paying for traffic that never converts.</h2>
+    <p class="p" style="margin-bottom:12px">Someone searches for your service. They click. Your site loads — and it looks like it was built five years ago. Small text, cluttered layout, stock photos from 2016. They don't call. They hit the back button and try the next result.</p>
+    <p class="p">You never even know they were there.</p>
+    <p class="p" style="margin-top:12px">And the ones who <em>do</em> try to call? 62% of the time, nobody picks up. No text back. No follow-up. That lead is gone — straight to a competitor who answered faster.</p>
+    <p class="p" style="margin-top:12px">This isn't a traffic problem. It's a revenue leak. And every week it stays open, you're funding your competition.</p>
+  </div>
+  <div class="cmp r">
+    <div class="cmph"><span class="o">What you have now</span><span class="n">Smart Website</span></div>
+    <div class="cr"><div class="cc o"><span class="ic">✕</span> Looks outdated, kills trust in seconds</div><div class="cc n"><span class="ic">✓</span> Premium design that builds credibility instantly</div></div>
+    <div class="cr"><div class="cc o"><span class="ic">✕</span> Waits for the phone to ring</div><div class="cc n"><span class="ic">✓</span> Texts back missed calls in 60 seconds</div></div>
+    <div class="cr"><div class="cc o"><span class="ic">✕</span> Gets visitors, zero leads</div><div class="cc n"><span class="ic">✓</span> Captures every visitor, follows up 24/7</div></div>
+    <div class="cr"><div class="cc o"><span class="ic">✕</span> You babysit it and it still does nothing</div><div class="cc n"><span class="ic">✓</span> Runs on autopilot while you're on the job</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<div class="dv"></div>
+<section class="s tsec">
+<div class="w">
+  <div class="r">
+    <span class="tag">Don't take my word for it</span>
+    <h2 class="h2">340+ business owners. Real numbers.</h2>
+  </div>
+
+  <div class="tc r">
+    <div class="ts">★★★★★</div>
+    <p class="tq">"Paid an agency $8,000 for a website that did nothing. This one cost me zero upfront and brought in <strong>7 new jobs in the first month.</strong> The missed-call text-back alone has saved at least $15,000 in leads I would've lost."</p>
+    <div class="tw"><div class="ta">MR</div><div><div class="tn">Mike R.</div><div class="tr">Contractor</div></div></div>
+  </div>
+
+  <div class="tc r">
+    <div class="ts">★★★★★</div>
+    <p class="tq">"5–10 calls a week were going to voicemail. Now every missed call gets a text in 60 seconds. Last month: <strong>14 new service calls</strong> — all from people who would've called someone else."</p>
+    <div class="tw"><div class="ta">ST</div><div><div class="tn">Sarah T.</div><div class="tr">HVAC Company</div></div></div>
+  </div>
+
+  <div class="tc r">
+    <div class="ts">★★★★★</div>
+    <p class="tq">"Three designers. Two agencies. $20,000+. None generated a single lead. <strong>This is the first website that pays for itself</strong> — every month."</p>
+    <div class="tw"><div class="ta">JL</div><div><div class="tn">James L.</div><div class="tr">Plumbing Contractor</div></div></div>
+  </div>
+
+  <div class="pb r"><strong>⭐ 4.9/5</strong> across 340+ Google Reviews</div>
+</div>
+</section>
+<div class="dv"></div>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="s">
+<div class="w">
+  <div class="r">
+    <span class="tag">How it works</span>
+    <h2 class="h2">Three steps. No complexity.</h2>
+  </div>
+  <div class="steps">
+    <div class="step r">
+      <div class="step-n">1</div>
+      <div>
+        <h3>15-minute call</h3>
+        <p>Tell me about your business, your customers, and where leads are falling through the cracks. I'll tell you exactly what I'd build — and if it's not a fit, I'll say so.</p>
+      </div>
+    </div>
+    <div class="step r">
+      <div class="step-n">2</div>
+      <div>
+        <h3>Your new site goes live in 48 hours</h3>
+        <p>I build a premium Smart Website around your business — custom design, real copywriting, faster than 99% of sites in your market. You review everything before launch.</p>
+      </div>
+    </div>
+    <div class="step r">
+      <div class="step-n">3</div>
+      <div>
+        <h3>Leads start coming in</h3>
+        <p>Day one: missed-call text-back is live. Lead capture is active. Follow-up sequences are running. You go back to running your business.</p>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:36px" class="r">
+    <a href="#book" class="cta">Book My Free Strategy Call <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</div>
+</section>
+
+<!-- ===== OFFER ===== -->
+<div class="dv"></div>
+<section class="s osec">
+<div class="w">
+  <div class="oc r">
+    <span class="tag">Here's the offer</span>
+    <h2 class="h2">I'll build your website for free.<br>You only pay when it's working.</h2>
+    <p class="p" style="text-align:center;max-width:500px;margin:0 auto 8px;font-size:14px">In 48 hours, you get a custom website that looks better than 99% of your competitors — and actually converts visitors into calls. The build costs you nothing.</p>
+
+    <div class="ob">
+      <div class="ol f">Website build</div>
+      <div class="on g">$0</div>
+    </div>
+    <ul class="oil">
+      <li>Custom-designed, mobile-first — not a template</li>
+      <li>Written by a real copywriter, not auto-generated</li>
+      <li>SEO-optimized, loads in under 2 seconds</li>
+      <li>Live in 48 hours — not 6–8 weeks</li>
+    </ul>
+
+    <div class="oline"></div>
+
+    <div class="ob">
+      <div class="ol m">Marketing system</div>
+      <div class="on">$297<span class="pr">/mo</span></div>
+    </div>
+    <p class="p" style="text-align:center;font-size:13px;margin-bottom:12px">This is what makes the website actually work. One extra job per month and it pays for itself 5x over.</p>
+    <ul class="oil">
+      <li>Missed call text-back — auto-reply within 60 seconds</li>
+      <li>Lead capture + CRM dashboard</li>
+      <li>Automated follow-up sequences (email + SMS)</li>
+      <li>Hosting, maintenance & ongoing support</li>
+      <li>Dashboard showing every lead and where it came from</li>
+    </ul>
+
+    <div style="margin-top:28px">
+      <a href="#book" class="cta" style="max-width:100%">Get My Free Smart Website <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="onote">🛡️ 30-day money-back guarantee · 6-month minimum · Cancel anytime after</div>
+  </div>
+</div>
+</section>
+<div class="dv"></div>
+
+<!-- ===== FAQ ===== -->
+<section class="s">
+<div class="w">
+  <div class="r"><span class="tag">You're skeptical. Good.</span><h2 class="h2">Reasonable questions</h2></div>
+
+  <div class="fq r">
+    <div class="fqq">Why would you build my website for free? <span class="fqi">+</span></div>
+    <div class="fqa">The website isn't how I make money. The monthly system is. I build your site for free because I'm betting the results speak for themselves. You stay because it works — not because you're locked in.</div>
+  </div>
+  <div class="fq r">
+    <div class="fqq">How is this better than what I have now? <span class="fqi">+</span></div>
+    <div class="fqa">Your current site probably looks like it was built years ago and does nothing to capture leads. I'll build you something that looks premium, loads fast, ranks on Google, and — most importantly — turns visitors into actual phone calls. Then the automation makes sure no lead ever slips through.</div>
+  </div>
+  <div class="fq r">
+    <div class="fqq">A real website in 48 hours? <span class="fqi">+</span></div>
+    <div class="fqa">AI tools have changed the game. What agencies take 6–8 weeks to deliver, I build in under 48 hours. Custom design. Real copy. Mobile-optimized. Not a template, not a generic page builder output.</div>
+  </div>
+  <div class="fq r">
+    <div class="fqq">Is $297/month worth it? <span class="fqi">+</span></div>
+    <div class="fqa">The missed-call text-back alone recovers 5–10 leads per month that would've gone to a competitor. If even one turns into a customer worth $500+, the system pays for itself several times over. Full-service agencies charge $1,500–$5,000/month for less.</div>
+  </div>
+  <div class="fq r">
+    <div class="fqq">What if I don't like the website? <span class="fqi">+</span></div>
+    <div class="fqa">You see the site before it goes live and can request changes. If you're not satisfied after launch, first month is fully refundable and you keep the website. I've built my reputation on 340+ five-star reviews by delivering quality work.</div>
+  </div>
+  <div class="fq r">
+    <div class="fqq">What if I want to cancel? <span class="fqi">+</span></div>
+    <div class="fqa">6-month minimum. After that, cancel anytime. You keep the website — you just lose the automation. But nobody cancels once leads are coming in.</div>
+  </div>
+</div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<div class="dv"></div>
+<section class="s fin" id="book">
+<div class="w">
+  <div class="r" style="text-align:center">
+    <h2 class="h2">Every week you wait, your competitors are getting the calls that should be yours.</h2>
+    <p class="p" style="text-align:center;max-width:460px;margin:0 auto">15 minutes. No obligation. If it's not a fit, I'll tell you — and I'll tell you why.</p>
+
+    <div style="margin-top:28px">
+      <!-- ★ REPLACE href with your GHL calendar / Calendly link ★ -->
+      <a href="#" class="cta" id="calBtn">Get My Free Smart Website <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+
+    <div class="orl"><span>or request a callback</span></div>
+
+    <form class="cbf" id="cbForm">
+      <label class="cbl" for="uN">Your name</label>
+      <input class="cbi" type="text" id="uN" name="name" placeholder="John" required autocomplete="given-name">
+      <label class="cbl" for="uP">Phone number</label>
+      <input class="cbi" type="tel" id="uP" name="phone" placeholder="(555) 123-4567" required autocomplete="tel">
+      <button type="submit" class="cbb">Request Callback →</button>
+      <div class="cbn">We'll call within 2 hours during business hours</div>
+    </form>
+
+    <div class="mi" style="margin-top:20px">
+      <span><span class="ck">✓</span> No obligation</span>
+      <span><span class="ck">✓</span> Free consultation</span>
+      <span><span class="ck">✓</span> Results in 48 hrs</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer><div class="w"><p><strong style="color:var(--t2)">Omnipresent</strong> · San Diego, California</p><p style="margin-top:4px">© 2026 Omnipresent</p></div></footer>
+</div>
+
+<div class="sticky" id="sk"><a href="#book" class="cta">Get My Free Smart Website <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+
+<script>
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');io.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.r').forEach(e=>io.observe(e));
+const sk=document.getElementById('sk'),hro=document.querySelector('.hero'),bk=document.getElementById('book');
+function ck(){if(!sk||innerWidth>=768)return;const h=hro.getBoundingClientRect().bottom,b=bk.getBoundingClientRect().top;sk.classList.toggle('on',h<0&&b>innerHeight)}
+addEventListener('scroll',ck,{passive:!0});
+document.querySelectorAll('.fq').forEach(f=>{f.addEventListener('click',()=>{const o=f.classList.contains('open');document.querySelectorAll('.fq').forEach(x=>x.classList.remove('open'));if(!o)f.classList.add('open')})});
+document.getElementById('cbForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const n=document.getElementById('uN').value.trim(),p=document.getElementById('uP').value.trim();
+  if(!n||!p)return;
+  // ★ REPLACE: fetch('YOUR_GHL_WEBHOOK',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,phone:p})});
+  this.innerHTML='<div style="padding:20px;text-align:center"><div style="font-size:24px;margin-bottom:6px">✓</div><div style="font-weight:600;margin-bottom:4px">Got it, '+n+'.</div><div style="font-size:12px;color:var(--t4)">We\'ll call you shortly.</div></div>';
+});
+</script>
+</body>
+</html>
