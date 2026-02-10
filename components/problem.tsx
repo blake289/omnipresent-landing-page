@@ -1,94 +1,96 @@
 "use client"
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import Image from "next/image"
 
-export function Tension() {
-  const { ref, isVisible } = useScrollAnimation(0.15)
+const painStats = [
+  { num: "62%", label: "of calls to small businesses go unanswered" },
+  { num: "$2K+", label: "lost per lead that calls your competitor instead" },
+  { num: "5 sec", label: "before a visitor decides to stay or bounce" },
+]
+
+const outcomes = [
+  "A premium site that builds trust the second it loads, better looking than 99% of your market",
+  "Missed calls get an automatic text back within 60 seconds",
+  "Every visitor captured and followed up with, even while you sleep",
+  "A dashboard showing every lead and exactly where it came from",
+]
+
+export function Problem() {
+  const { ref, isVisible } = useScrollAnimation(0.12)
 
   return (
-    <section className="bg-white py-28 md:py-40" aria-labelledby="tension-heading">
-      <div ref={ref} className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
-          {/* Left -- copy */}
-          <div className="max-w-xl">
-            {/* Editorial label */}
-            <div
-              className={`transition-all duration-700 ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-              }`}
-            >
-              <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-[#0A0F1C]/30">
-                The silent revenue leak
-              </p>
-            </div>
+    <section className="py-[72px] max-sm:py-[52px]">
+      <div ref={ref} className="max-w-[680px] mx-auto px-6 max-sm:px-5">
+        <div
+          className={`transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+        >
+          <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[var(--blue)] mb-2.5 inline-block">
+            The problem
+          </span>
+          <h2 className="text-[clamp(22px,5.5vw,34px)] font-bold leading-[1.15] tracking-[-0.03em] mb-4">
+            You&apos;re paying for traffic that never converts.
+          </h2>
+          <p className="text-base text-[var(--t2)] leading-[1.75] tracking-[-0.01em] mb-2.5">
+            Someone searches for your service. They click. Your site loads and
+            it looks like it was built years ago. Slow, cluttered, hard to
+            navigate on a phone. They don&apos;t call. They hit the back button
+            and try the next result.
+          </p>
+          <p className="text-base text-[var(--t2)] leading-[1.75] tracking-[-0.01em]">
+            You never even know they were there.
+          </p>
+          <p className="text-base text-[var(--t2)] leading-[1.75] tracking-[-0.01em] mt-2.5">
+            The ones who <em>do</em> try to call? Most of the time, nobody picks
+            up. No text back. No follow-up. That lead walks straight to whoever
+            answers first.
+          </p>
+        </div>
 
-            {/* The uncomfortable truth */}
+        {/* Pain stats grid */}
+        <div
+          className={`grid grid-cols-3 gap-3 mt-7 max-sm:grid-cols-1 max-sm:gap-2.5 transition-all duration-700 delay-100 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+        >
+          {painStats.map((stat) => (
             <div
-              className={`mt-10 transition-all duration-1000 delay-200 ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              }`}
+              key={stat.num}
+              className="bg-[var(--red-l)] border border-[var(--red-b)] rounded-[var(--r)] py-[18px] px-5"
             >
-              <h2
-                id="tension-heading"
-                className="font-display text-[1.75rem] font-bold leading-[1.3] tracking-tight text-[#0A0F1C] sm:text-3xl md:text-[2.5rem] md:leading-[1.25]"
-              >
-                Your website gets visitors every week.
-                <br className="hidden md:block" />
-                <span className="text-[#0A0F1C]/30">
-                  {" How many become paying customers?"}
-                </span>
-              </h2>
-            </div>
-
-            {/* The cost */}
-            <div
-              className={`mt-12 max-w-lg transition-all duration-700 delay-400 ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-              }`}
-            >
-              <p className="text-[17px] leading-[1.85] text-[#0A0F1C]/50 md:text-lg md:leading-[1.85]">
-                {"Here's what's happening right now: Someone needs your service. They Google you. They land on your site. They don't find answers fast enough. They leave and call the next guy on the list. That's a $2,000 job you never knew you lost. And 62% of calls to small businesses go unanswered — every single one is revenue walking out the door."}
-              </p>
-            </div>
-
-            {/* The shift */}
-            <div
-              className={`mt-10 transition-all duration-700 delay-500 ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-              }`}
-            >
-              <p className="text-[17px] font-medium leading-[1.85] text-[#0A0F1C] md:text-lg">
-                {"What if your website could capture them before they leave?"}
-              </p>
-            </div>
-          </div>
-
-          {/* Right -- photo */}
-          <div
-            className={`transition-all duration-1000 delay-300 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            }`}
-          >
-            <div className="relative overflow-hidden rounded-2xl">
-              <Image
-                src="/images/missed-call.png"
-                alt="Business owner looking at missed call on their phone while busy in their workspace"
-                width={600}
-                height={450}
-                className="h-auto w-full object-cover"
-              />
-              {/* Stat overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent px-6 pb-6 pt-16">
-                <p className="font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
-                  62%
-                </p>
-                <p className="mt-1 text-sm text-white/70">
-                  of calls to small businesses go unanswered
-                </p>
+              <div className="text-[26px] font-bold text-[var(--red)] tracking-[-0.02em] mb-0.5">
+                {stat.num}
+              </div>
+              <div className="text-sm text-[var(--t2)] leading-[1.45]">
+                {stat.label}
               </div>
             </div>
-          </div>
+          ))}
+        </div>
+
+        {/* Outcome box */}
+        <div
+          className={`bg-[var(--green-l)] border border-[var(--green-b)] rounded-[var(--rl)] py-[26px] px-7 mt-7 transition-all duration-700 delay-200 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+        >
+          <h3 className="text-lg font-bold mb-2.5 tracking-[-0.02em]">
+            What if your website could fix all of this?
+          </h3>
+          <ul className="list-none p-0 m-0">
+            {outcomes.map((item) => (
+              <li
+                key={item}
+                className="text-[15px] text-[var(--t2)] py-1.5 pl-6 relative leading-[1.6]"
+              >
+                <span className="absolute left-0 text-[var(--green)] font-bold text-sm">
+                  ✓
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

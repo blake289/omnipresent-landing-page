@@ -1,24 +1,18 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter, Space_Grotesk } from "next/font/google"
+import { Inter } from "next/font/google"
 
-import "./globals.css"
+import "@/styles/globals.css"
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 })
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["500", "600", "700"],
-})
-
 export const metadata: Metadata = {
-  title: "Omnipresent | Smart Websites That Actually Work",
+  title: "Free Smart Website in 48 Hours | Omnipresent",
   description:
-    "Your website should work as hard as you do. Custom Smart Websites built in 48 hours. Free to start. 340+ five-star reviews. San Diego.",
+    "We build premium websites in 48 hours for free. You pay $297/mo for the system that turns visitors into phone calls.",
   keywords: [
     "smart website",
     "small business website",
@@ -30,7 +24,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0A0F1C",
+  themeColor: "#1a6bff",
   width: "device-width",
   initialScale: 1,
 }
@@ -41,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )

@@ -1,101 +1,84 @@
 "use client"
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 
 const steps = [
   {
-    num: "01",
-    title: "A 15-minute call",
-    body: "Tell me about your business, your customers, and what's not working. I'll tell you if I can help. No pitch, no pressure — and if it's not a fit, I'll say so.",
-    image: "/images/step-conversation.png",
-    imageAlt:
-      "Two people having a casual business conversation over coffee",
+    num: 1,
+    title: "15-minute call",
+    body: "Tell us about your business, your customers, and where leads are falling through. We will tell you exactly what we would build. If it's not a fit, we will say so.",
   },
   {
-    num: "02",
-    title: "Your site goes live in 48 hours",
-    body: "I build a custom Smart Website around your specific business. You review everything before it goes live. Not happy? I'll revise it until you are.",
-    image: "/images/step-build.png",
-    imageAlt:
-      "Hands on a laptop keyboard with a professional website being designed on screen",
+    num: 2,
+    title: "Your new site goes live in 48 hours",
+    body: "We build a premium Smart Website around your business. Custom design, real copywriting, optimized for speed and mobile. This is a $3,000 to $5,000+ website that we build for you at no cost. You review everything before launch.",
   },
   {
-    num: "03",
+    num: 3,
     title: "Leads start coming in",
-    body: "Day one: missed-call text-back is live. Lead capture is active. Follow-up sequences are running. You go back to running your business. The system handles the rest.",
-    image: "/images/step-results.png",
-    imageAlt:
-      "Business owner checking their phone with a pleased expression after receiving a new lead",
+    body: "Missed-call text-back goes live day one. Lead capture is active. Follow-up sequences are running. You see every lead on your dashboard and go back to running your business.",
   },
 ]
 
-export function Process() {
+export function HowItWorks() {
   const { ref, isVisible } = useScrollAnimation(0.1)
 
   return (
-    <section
-      id="how-it-works"
-      className="bg-[#FAFBFC] py-28 md:py-40"
-      aria-labelledby="process-heading"
-    >
-      <div ref={ref} className="mx-auto max-w-6xl px-6">
+    <section className="py-[72px] max-sm:py-[52px] bg-[var(--bg-soft)]">
+      <div ref={ref} className="max-w-[680px] mx-auto px-6 max-sm:px-5">
         <div
-          className={`mx-auto max-w-3xl transition-all duration-700 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          className={`transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
-          <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-[#0A0F1C]/30">
+          <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[var(--blue)] mb-2.5 inline-block">
             How it works
-          </p>
-          <h2
-            id="process-heading"
-            className="mt-5 font-display text-3xl font-bold leading-[1.08] tracking-tight text-[#0A0F1C] md:text-[2.75rem] lg:text-5xl"
-          >
+          </span>
+          <h2 className="text-[clamp(22px,5.5vw,34px)] font-bold leading-[1.15] tracking-[-0.03em] mb-4">
             Three steps. No complexity.
           </h2>
         </div>
 
-        <div className="mt-16 flex flex-col gap-16 md:mt-20 md:gap-24">
+        <div className="mt-7">
           {steps.map((step, i) => (
             <div
               key={step.num}
-              className={`grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16 transition-all duration-700 ${
+              className={`flex gap-[18px] mb-8 last:mb-0 transition-all duration-700 ${
                 isVisible
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-10 opacity-0"
-              } ${i % 2 === 1 ? "md:direction-rtl" : ""}`}
-              style={{
-                transitionDelay: isVisible ? `${250 + i * 200}ms` : "0ms",
-              }}
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-5"
+              }`}
+              style={{ transitionDelay: `${100 + i * 100}ms` }}
             >
-              {/* Photo */}
-              <div
-                className={`overflow-hidden rounded-2xl ${i % 2 === 1 ? "md:order-2" : ""}`}
-              >
-                <Image
-                  src={step.image || "/placeholder.svg"}
-                  alt={step.imageAlt}
-                  width={600}
-                  height={400}
-                  className="h-auto w-full object-cover"
-                />
+              <div className="w-[42px] h-[42px] min-w-[42px] rounded-full bg-[var(--blue)] text-white flex items-center justify-center text-base font-bold mt-0.5 shrink-0">
+                {step.num}
               </div>
-
-              {/* Copy */}
-              <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                <span className="font-display text-5xl font-bold text-[#0A0F1C]/[0.05] md:text-6xl">
-                  {step.num}
-                </span>
-                <h3 className="mt-3 text-xl font-semibold text-[#0A0F1C] md:text-2xl">
+              <div>
+                <h3 className="text-lg font-semibold tracking-[-0.02em] mb-1">
                   {step.title}
                 </h3>
-                <p className="mt-3 max-w-md text-[15px] leading-[1.75] text-[#0A0F1C]/50 md:text-base md:leading-[1.75]">
+                <p className="text-[15px] text-[var(--t2)] leading-[1.65]">
                   {step.body}
                 </p>
               </div>
             </div>
           ))}
+        </div>
+
+        <div
+          className={`text-center mt-9 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+          style={{ transitionDelay: "400ms" }}
+        >
+          <a
+            href="#book"
+            className="inline-flex items-center justify-center gap-2 bg-[var(--blue)] text-white text-base font-semibold py-4 px-[30px] rounded-[var(--r)] tracking-[-0.01em] transition-all duration-200 hover:bg-[var(--blue-h)] hover:-translate-y-px shadow-[0_1px_3px_rgba(0,0,0,0.1),0_4px_14px_rgba(26,107,255,0.2)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.1),0_8px_24px_rgba(26,107,255,0.25)]"
+          >
+            Book a Free Strategy Call
+            <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </div>
     </section>

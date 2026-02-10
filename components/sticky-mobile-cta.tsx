@@ -8,26 +8,30 @@ export function StickyMobileCTA() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.scrollY > 600)
+      const heroBottom =
+        document.querySelector("section")?.getBoundingClientRect().bottom ?? 0
+      const bookSection = document.getElementById("book")
+      const bookTop = bookSection?.getBoundingClientRect().top ?? Infinity
+
+      setVisible(heroBottom < 0 && bookTop > window.innerHeight)
     }
+
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-50 border-t border-white/[0.04] bg-[#0A0F1C]/95 px-4 py-3 backdrop-blur-xl transition-all duration-300 md:hidden ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+      className={`fixed bottom-0 left-0 right-0 bg-white/[0.92] backdrop-blur-2xl py-2.5 px-4 border-t border-[var(--border)] z-50 transition-transform duration-300 flex justify-center md:hidden ${
+        visible ? "translate-y-0" : "translate-y-full"
       }`}
-      role="complementary"
-      aria-label="Get started"
     >
       <a
-        href="#book-call"
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0A0F1C] transition-all duration-300 hover:bg-slate-100"
+        href="#book"
+        className="inline-flex items-center justify-center gap-2 bg-[var(--blue)] text-white text-[15px] font-semibold py-3.5 px-5 rounded-[var(--r)] max-w-[320px] w-full tracking-[-0.01em] transition-all duration-200 hover:bg-[var(--blue-h)] shadow-[0_1px_3px_rgba(0,0,0,0.1),0_4px_14px_rgba(26,107,255,0.2)]"
       >
-        See if you qualify
-        <ArrowRight className="h-3.5 w-3.5" />
+        Get My Free Smart Website
+        <ArrowRight className="w-4 h-4" />
       </a>
     </div>
   )

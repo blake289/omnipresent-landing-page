@@ -1,71 +1,148 @@
 "use client"
 
+import { useState } from "react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { ArrowRight } from "lucide-react"
-import Image from "next/image"
+import Script from "next/script"
 
-export function Close() {
-  const { ref, isVisible } = useScrollAnimation(0.2)
+export function FinalCTA() {
+  const { ref, isVisible } = useScrollAnimation(0.12)
+  const [formState, setFormState] = useState<"idle" | "submitted">("idle")
+  const [name, setName] = useState("")
+  const [phone, setPhone] = useState("")
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!name.trim() || !phone.trim()) return
+
+    // TODO: Replace with your GHL webhook
+    // fetch('YOUR_GHL_WEBHOOK_URL', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ name, phone })
+    // })
+
+    setFormState("submitted")
+  }
 
   return (
     <section
-      id="book-call"
-      className="relative overflow-hidden bg-[#0A0F1C] py-32 md:py-44"
-      aria-labelledby="close-heading"
+      id="book"
+      className="py-[72px] max-sm:py-[52px] pb-20 bg-[var(--bg-soft)]"
     >
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#2563EB]/[0.03] blur-[150px]" />
+      <div ref={ref} className="max-w-[680px] mx-auto px-6 max-sm:px-5">
+        <div
+          className={`bg-[var(--bg-card)] border border-[var(--border)] rounded-[var(--rx)] py-11 px-9 text-center shadow-[0_4px_12px_rgba(0,0,0,0.06)] max-w-[600px] mx-auto max-sm:py-8 max-sm:px-5 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+          }`}
+        >
+          <h2 className="text-[clamp(20px,5vw,28px)] font-bold leading-[1.15] tracking-[-0.03em] mb-2.5">
+            Every week you wait, competitors get the calls that should be yours.
+          </h2>
+          <p className="text-[15px] text-[var(--t2)] text-center mb-1">
+            Pick a time below. 15 minutes, no obligation.
+          </p>
 
-      <div ref={ref} className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-5 md:gap-16">
-          {/* Portrait -- left column, visible on md+ */}
-          <div
-            className={`hidden md:block md:col-span-2 transition-all duration-1000 delay-300 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-            }`}
-          >
-            <div className="overflow-hidden rounded-2xl">
-              <Image
-                src="/images/owner-confident.png"
-                alt="Confident business owner in their workspace"
-                width={480}
-                height={600}
-                className="h-auto w-full object-cover"
-              />
-            </div>
+          {/* GHL Calendar Embed */}
+          <div className="mt-6 rounded-[var(--r)] overflow-hidden">
+            <iframe
+              src="https://link.omnipresent.app/widget/booking/SxpR3xGWSQxBDYeHsUg7"
+              className="w-full min-h-[600px] border-none overflow-hidden rounded-[10px]"
+              scrolling="no"
+              id="SxpR3xGWSQxBDYeHsUg7_1770761830786"
+            />
+          </div>
+          <Script
+            src="https://link.omnipresent.app/js/form_embed.js"
+            strategy="lazyOnload"
+          />
+
+          {/* Divider */}
+          <div className="flex items-center gap-3 my-[22px]">
+            <div className="flex-1 h-px bg-[var(--border)]" />
+            <span className="text-xs text-[var(--t4)] uppercase tracking-[0.08em] font-medium">
+              prefer a text instead?
+            </span>
+            <div className="flex-1 h-px bg-[var(--border)]" />
           </div>
 
-          {/* Copy -- right column */}
-          <div className="text-center md:col-span-3 md:text-left">
-            <div
-              className={`transition-all duration-1000 ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              }`}
-            >
-              <h2
-                id="close-heading"
-                className="text-balance font-display text-3xl font-bold leading-[1.05] tracking-tight text-white sm:text-[2.75rem] md:text-5xl"
+          {/* Text-me form */}
+          {formState === "idle" ? (
+            <form onSubmit={handleSubmit}>
+              <label
+                htmlFor="uN"
+                className="block text-xs font-semibold uppercase tracking-[0.08em] text-[var(--t3)] mb-1.5 text-left"
               >
-                Every week your website sits there,
-                your competitors are getting the calls you should be getting.
-              </h2>
-
-              <p className="mx-auto mt-6 max-w-lg text-[17px] leading-[1.75] text-slate-400 md:mx-0 md:text-lg md:leading-[1.75]">
-                {"15 minutes. No obligation. If it's not a fit, I'll tell you — and I'll tell you why."}
-              </p>
-
-              <div className="mt-10 flex flex-col items-center gap-4 md:items-start">
-                <a
-                  href="#book-call"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-[15px] font-semibold text-[#0A0F1C] transition-all duration-300 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0F1C] md:px-10 md:py-5 md:text-base"
-                >
-                  See if you qualify
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-                </a>
-                <p className="text-[13px] text-slate-600">
-                  Free to start. No credit card. No awkward sales pitch.
-                </p>
+                Your name
+              </label>
+              <input
+                type="text"
+                id="uN"
+                name="name"
+                placeholder="John"
+                required
+                autoComplete="given-name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full py-3.5 px-4 bg-[var(--bg-soft)] border border-[var(--border)] rounded-lg text-[var(--t1)] text-base mb-3 outline-none transition-all duration-200 focus:border-[var(--blue)] focus:shadow-[0_0_0_3px_rgba(26,107,255,0.1)] placeholder:text-[var(--t4)]"
+              />
+              <label
+                htmlFor="uP"
+                className="block text-xs font-semibold uppercase tracking-[0.08em] text-[var(--t3)] mb-1.5 text-left"
+              >
+                Phone number
+              </label>
+              <input
+                type="tel"
+                id="uP"
+                name="phone"
+                placeholder="(555) 123-4567"
+                required
+                autoComplete="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full py-3.5 px-4 bg-[var(--bg-soft)] border border-[var(--border)] rounded-lg text-[var(--t1)] text-base mb-3 outline-none transition-all duration-200 focus:border-[var(--blue)] focus:shadow-[0_0_0_3px_rgba(26,107,255,0.1)] placeholder:text-[var(--t4)]"
+              />
+              <button
+                type="submit"
+                className="w-full py-4 bg-[var(--blue)] text-white text-base font-semibold border-none rounded-lg cursor-pointer transition-all duration-200 tracking-[-0.01em] shadow-[0_2px_8px_rgba(26,107,255,0.2)] hover:bg-[var(--blue-h)] hover:-translate-y-px"
+              >
+                Text Me the Details →
+              </button>
+              <div className="text-xs text-[var(--t3)] mt-2.5 text-center">
+                We will text you within a few minutes during business hours
+              </div>
+            </form>
+          ) : (
+            <div className="py-5 text-center">
+              <div className="text-2xl mb-1.5 text-[var(--green)]">✓</div>
+              <div className="text-[17px] font-semibold mb-1">
+                Got it, {name}!
+              </div>
+              <div className="text-sm text-[var(--t3)]">
+                We will text you shortly.
               </div>
             </div>
+          )}
+
+          <div className="flex items-center justify-center gap-5 mt-[18px] text-[13px] text-[var(--t3)] flex-wrap">
+            <span className="inline-flex items-center gap-[5px]">
+              <span className="text-[var(--green)] font-bold text-[13px]">
+                ✓
+              </span>{" "}
+              No obligation
+            </span>
+            <span className="inline-flex items-center gap-[5px]">
+              <span className="text-[var(--green)] font-bold text-[13px]">
+                ✓
+              </span>{" "}
+              Free $3K-$5K+ website
+            </span>
+            <span className="inline-flex items-center gap-[5px]">
+              <span className="text-[var(--green)] font-bold text-[13px]">
+                ✓
+              </span>{" "}
+              340+ five-star reviews
+            </span>
           </div>
         </div>
       </div>

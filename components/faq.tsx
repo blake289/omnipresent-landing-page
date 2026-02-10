@@ -1,83 +1,92 @@
 "use client"
 
+import { useState } from "react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
 
-const objections = [
+const faqs = [
   {
-    q: "What's the catch?",
-    a: "No catch. The website is free because the monthly system is how I make money. I build your site to prove I can deliver. You stay because the leads keep coming. If they don't? Keep the site and walk away.",
+    q: "Why would you build my website for free?",
+    a: "The website is not how we make money. The monthly system is. We build your site for free because we are betting the results speak for themselves. You stay because it works, not because you are locked in. Most agencies charge $3,000 to $5,000+ for a website like this. We do it at no cost because the automation is where the value is for both of us.",
+  },
+  {
+    q: "How is this better than what I have now?",
+    a: "Most small business websites look outdated and do nothing to capture leads. We build you something that looks premium, loads fast, and turns visitors into phone calls. Then the automation makes sure no lead ever slips through the cracks.",
   },
   {
     q: "A real website in 48 hours?",
-    a: "Yes. Fully custom, mobile-optimized, designed around your business — not pulled from a template library. You review everything before it goes live. If you want changes, I make them.",
+    a: "AI tools changed the game. What agencies take 6 to 8 weeks to deliver, we build in under 48 hours. Custom design. Real copywriting. Mobile-optimized. Not a template.",
   },
   {
     q: "Is $297/month worth it?",
-    a: "Do the math: one saved lead = one job. One job = $1,500-$3,000+. The system costs $297/month. If it saves you even one lead a month, you're 5-10x ahead. Compare that to an agency at $2,000+/month that doesn't guarantee anything.",
+    a: "Missed-call text-back alone recovers 5 to 10 leads per month that would have gone to a competitor. If one turns into a customer worth $500+, the system pays for itself several times over. Full-service agencies charge $1,500 to $5,000/month for less.",
+  },
+  {
+    q: "What if I don't like the website?",
+    a: "You see it before it goes live and request any changes. If you are not happy after launch, the first month is fully refundable and you keep the website. 340+ five-star Google reviews. We don't deliver bad work.",
   },
   {
     q: "What if I want to cancel?",
-    a: "Six-month minimum, then month-to-month. Cancel anytime after that. You keep your website — you just lose the marketing system. Fair warning: once the leads start coming in, nobody wants to turn it off.",
-  },
-  {
-    q: "I already have a website / designer / agency.",
-    a: "Great. How's that working out? If you're happy with the leads you're getting, you don't need this. But if your current site isn't pulling its weight, a second opinion costs you nothing.",
+    a: "6-month minimum. After that, cancel anytime. You keep the website, you just lose the automation. But nobody cancels once the leads are coming in.",
   },
 ]
 
-export function Objections() {
-  const { ref, isVisible } = useScrollAnimation(0.15)
+export function FAQ() {
+  const { ref, isVisible } = useScrollAnimation(0.12)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const toggle = (i: number) => {
+    setOpenIndex(openIndex === i ? null : i)
+  }
 
   return (
-    <section
-      id="faq"
-      className="bg-white py-28 md:py-40"
-      aria-labelledby="objections-heading"
-    >
-      <div ref={ref} className="relative z-10 mx-auto max-w-3xl px-6">
+    <section className="py-[72px] max-sm:py-[52px]">
+      <div ref={ref} className="max-w-[680px] mx-auto px-6 max-sm:px-5">
         <div
           className={`transition-all duration-700 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
-          <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-[#0A0F1C]/30">
-            {"Reasonable questions"}
-          </p>
-          <h2
-            id="objections-heading"
-            className="mt-5 font-display text-3xl font-bold leading-[1.08] tracking-tight text-[#0A0F1C] md:text-[2.75rem] lg:text-5xl"
-          >
-            {"You\u2019re skeptical. Good."}
+          <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[var(--blue)] mb-2.5 inline-block">
+            Questions
+          </span>
+          <h2 className="text-[clamp(22px,5.5vw,34px)] font-bold leading-[1.15] tracking-[-0.03em] mb-4">
+            You&apos;re skeptical. Good.
           </h2>
         </div>
 
-        <div
-          className={`mt-12 transition-all duration-700 delay-200 md:mt-16 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-          }`}
-        >
-          <Accordion type="single" collapsible className="w-full">
-            {objections.map((o, i) => (
-              <AccordionItem
-                key={`o-${i}`}
-                value={`o-${i}`}
-                className="border-[#0A0F1C]/[0.06]"
+        <div className="mt-4">
+          {faqs.map((faq, i) => (
+            <div
+              key={faq.q}
+              className={`border-b border-[var(--border)] py-5 cursor-pointer first:border-t transition-all duration-700 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-5"
+              }`}
+              style={{ transitionDelay: `${50 + i * 50}ms` }}
+              onClick={() => toggle(i)}
+            >
+              <div className="flex justify-between items-center gap-3 text-base font-medium tracking-[-0.01em] select-none">
+                {faq.q}
+                <span
+                  className={`w-7 h-7 min-w-[28px] rounded-full bg-[var(--bg-muted)] flex items-center justify-center text-base text-[var(--t3)] transition-all duration-300 ${
+                    openIndex === i
+                      ? "rotate-45 bg-[var(--blue-l)] text-[var(--blue)]"
+                      : ""
+                  }`}
+                >
+                  +
+                </span>
+              </div>
+              <div
+                className={`overflow-hidden transition-all duration-400 text-[15px] text-[var(--t2)] leading-[1.7] tracking-[-0.01em] ${
+                  openIndex === i ? "max-h-[300px] pt-3" : "max-h-0"
+                }`}
               >
-                <AccordionTrigger className="text-left text-[15px] font-semibold text-[#0A0F1C] transition-colors hover:text-[#0A0F1C]/60 hover:no-underline md:text-base [&>svg]:text-[#0A0F1C]/25">
-                  {o.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-[15px] leading-[1.75] text-[#0A0F1C]/50 md:text-base md:leading-[1.75]">
-                  {o.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                {faq.a}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

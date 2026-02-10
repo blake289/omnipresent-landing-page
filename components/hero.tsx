@@ -1,125 +1,86 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { ArrowRight } from "lucide-react"
-import Image from "next/image"
 
 export function Hero() {
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
-
   return (
-    <section
-      id="hero"
-      className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[#0A0F1C]"
-    >
-      {/* Single ambient glow */}
-      <div className="pointer-events-none absolute -left-40 top-[-15%] h-[700px] w-[700px] rounded-full bg-[#2563EB]/[0.04] blur-[160px]" />
-
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-6 py-32 md:grid-cols-2 md:gap-16 md:py-40">
-        {/* Left -- copy */}
-        <div className="max-w-xl">
-          {/* Eyebrow */}
-          <div
-            className={`transition-all duration-700 delay-200 ${
-              mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
-            }`}
-          >
-            <span className="inline-flex items-center gap-2.5 text-[13px] font-medium tracking-wide text-slate-500">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              Now accepting 5 new clients this month
-            </span>
-          </div>
-
-          {/* Headline */}
-          <h1
-            className={`mt-8 font-display text-[2.75rem] font-bold leading-[1.0] tracking-tight text-white sm:text-6xl md:text-7xl transition-all duration-1000 delay-[450ms] ${
-              mounted ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-            }`}
-          >
-            Your website
-            <br />
-            looks fine.
-          </h1>
-
-          {/* The turn */}
-          <p
-            className={`mt-5 font-display text-[1.75rem] font-bold leading-[1.15] tracking-tight text-slate-500 sm:text-3xl md:text-4xl transition-all duration-900 delay-[700ms] ${
-              mounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-            }`}
-          >
-            {"It's just not bringing in leads."}
-          </p>
-
-          {/* One calm line */}
-          <p
-            className={`mt-8 max-w-md text-lg leading-relaxed text-slate-400 md:text-xl md:leading-relaxed transition-all duration-700 delay-[950ms] ${
-              mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-            }`}
-          >
-            {"Right now, potential customers are visiting your site, not finding answers fast enough, and calling the next guy on the list. There's a fix for that."}
-          </p>
-
-          {/* CTA */}
-          <div
-            className={`mt-10 transition-all duration-700 delay-[1150ms] ${
-              mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-            }`}
-          >
-            <a
-              href="#book-call"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-[15px] font-semibold text-[#0A0F1C] transition-all duration-300 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0F1C]"
-            >
-              See if you qualify
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </a>
-          </div>
-
-          {/* Minimal trust */}
-          <div
-            className={`mt-14 flex items-center gap-5 text-[13px] text-slate-600 transition-all duration-700 delay-[1350ms] ${
-              mounted ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
-            }`}
-          >
-            <span>Trusted by 340+ business owners</span>
-            <span className="h-3 w-px bg-white/10" aria-hidden="true" />
-            <span>Live in 48 hours</span>
-            <span className="h-3 w-px bg-white/10" aria-hidden="true" />
-            <span>$0 upfront</span>
-          </div>
-        </div>
-
-        {/* Right -- phone mockup visual */}
-        <div
-          className={`relative hidden md:flex items-center justify-center transition-all duration-1000 delay-[800ms] ${
-            mounted ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-          }`}
+    <section className="pt-14 pb-0 text-center">
+      <div className="max-w-[680px] mx-auto px-6">
+        <h1
+          className="text-[clamp(28px,7vw,46px)] font-bold leading-[1.12] tracking-[-0.04em] mb-4 animate-up"
+          style={{ animationDelay: "0.1s" }}
         >
-          <div className="relative">
-            {/* Glow behind device */}
-            <div className="absolute inset-0 -m-8 rounded-3xl bg-[#2563EB]/[0.06] blur-[60px]" />
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl shadow-black/40">
-              <Image
-                src="/images/hero-phone.png"
-                alt="Smart Website notification on a phone showing a new lead captured automatically"
-                width={480}
-                height={560}
-                className="h-auto w-full max-w-[420px] object-cover"
-                priority
-              />
+          Your website is losing you customers.
+          <br />
+          <span className="text-[var(--blue)]">We fix that in 48 hours.</span>
+        </h1>
+
+        <p
+          className="text-[clamp(16px,3.8vw,18px)] text-[var(--t2)] max-w-[540px] mx-auto mb-9 leading-[1.7] tracking-[-0.01em] animate-up"
+          style={{ animationDelay: "0.2s" }}
+        >
+          We replace your outdated site with a premium one that looks better
+          than 99% of your competitors and actually turns visitors into calls.
+          The build is free.
+        </p>
+
+        {/* VSL Placeholder */}
+        <div
+          className="max-w-[600px] mx-auto mb-9 animate-up"
+          style={{ animationDelay: "0.3s" }}
+        >
+          <div className="relative w-full pt-[56.25%] rounded-[var(--rl)] overflow-hidden bg-[var(--bg-dark)] border border-[var(--border)] shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
+            <div className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer bg-gradient-to-br from-[#111] via-[#1a1a1a] to-[#0f0f0f] group">
+              <div className="w-[68px] h-[68px] rounded-full bg-[var(--blue)] flex items-center justify-center mb-3 animate-pulse-ring transition-transform duration-300 group-hover:scale-[1.06] shadow-[0_4px_20px_rgba(26,107,255,0.35)]">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-6 h-6 fill-white ml-[3px]"
+                >
+                  <polygon points="9,5 20,12 9,19" />
+                </svg>
+              </div>
+              <span className="text-sm text-white/60 font-medium">
+                See how it works (2 min)
+              </span>
             </div>
           </div>
+          <p className="text-center text-[13px] text-[var(--t3)] mt-2.5">
+            Short version. Your time matters.
+          </p>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <div
-        className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-all duration-700 delay-[1600ms] ${
-          mounted ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <div className="flex h-8 w-5 items-start justify-center rounded-full border border-white/[0.08] p-1.5">
-          <div className="h-1.5 w-0.5 animate-bounce rounded-full bg-white/25" />
+        {/* CTA */}
+        <div
+          className="flex flex-col items-center animate-up"
+          style={{ animationDelay: "0.4s" }}
+        >
+          <a
+            href="#book"
+            className="inline-flex items-center justify-center gap-2 bg-[var(--blue)] text-white text-base font-semibold py-4 px-[30px] rounded-[var(--r)] w-full max-w-[380px] tracking-[-0.01em] transition-all duration-200 hover:bg-[var(--blue-h)] hover:-translate-y-px shadow-[0_1px_3px_rgba(0,0,0,0.1),0_4px_14px_rgba(26,107,255,0.2)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.1),0_8px_24px_rgba(26,107,255,0.25)]"
+          >
+            Get My Free Smart Website
+            <ArrowRight className="w-4 h-4" />
+          </a>
+          <div className="flex items-center justify-center gap-5 mt-3.5 text-[13px] text-[var(--t3)]">
+            <span className="inline-flex items-center gap-[5px]">
+              <span className="text-[var(--green)] font-bold text-[13px]">
+                ✓
+              </span>{" "}
+              $0 to start
+            </span>
+            <span className="inline-flex items-center gap-[5px]">
+              <span className="text-[var(--green)] font-bold text-[13px]">
+                ✓
+              </span>{" "}
+              No contracts to sign today
+            </span>
+            <span className="inline-flex items-center gap-[5px]">
+              <span className="text-[var(--green)] font-bold text-[13px]">
+                ✓
+              </span>{" "}
+              15-min call
+            </span>
+          </div>
         </div>
       </div>
     </section>
