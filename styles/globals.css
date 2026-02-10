@@ -14,7 +14,7 @@
     --t1: #111113;
     --t2: #555560;
     --t3: #78787f;
-    --t4: #9a9aa2;
+    --t4: #6e6e78;
 
     --blue: #1a6bff;
     --blue-h: #0057e6;
@@ -38,6 +38,20 @@
     --r: 10px;
     --rl: 14px;
     --rx: 18px;
+
+    /* 8px spacing scale */
+    --s-1: 8px;
+    --s-2: 16px;
+    --s-3: 24px;
+    --s-4: 32px;
+    --s-5: 40px;
+    --s-6: 48px;
+    --s-7: 56px;
+    --s-8: 64px;
+    --s-9: 72px;
+    --s-10: 80px;
+    --s-11: 88px;
+    --s-12: 96px;
 
     /* shadcn compatibility */
     --background: 0 0% 100%;
@@ -67,10 +81,12 @@
   * {
     @apply border-border;
   }
+
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
+
   body {
     @apply bg-[var(--bg)] text-[var(--t1)] antialiased;
     font-feature-settings: "ss01" on, "cv01" on;
@@ -84,12 +100,20 @@
   }
 }
 
+/* Keyboard accessibility */
+*:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 /* Animations */
 @keyframes up {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -97,10 +121,12 @@
 }
 
 @keyframes pulse-ring {
+
   0%,
   100% {
     box-shadow: 0 0 0 0 rgba(26, 107, 255, 0.2);
   }
+
   50% {
     box-shadow: 0 0 0 8px rgba(26, 107, 255, 0);
   }

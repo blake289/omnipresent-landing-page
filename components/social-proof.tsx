@@ -19,7 +19,7 @@ const testimonials = [
   },
   {
     quote:
-      'Three designers. Two agencies. Over $20,000 spent. None generated a single lead. <strong>This is the first website that pays for itself</strong>, every single month.',
+      'Three designers. Two agencies. Over $20,000 spent. None generated a single lead. <strong>This is the first website that pays for itself</strong> — every single month.',
     name: "James L.",
     role: "Plumbing Contractor",
     initials: "JL",
@@ -33,15 +33,25 @@ export function Testimonials() {
     <section className="py-[72px] max-sm:py-[52px]">
       <div ref={ref} className="max-w-[680px] mx-auto px-6 max-sm:px-5">
         <div
-          className={`transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
+          className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
         >
-          <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[var(--blue)] mb-2.5 inline-block">
+          {/* Aggregate trust badge */}
+          <div className="inline-flex items-center gap-2 bg-[var(--bg-soft)] border border-[var(--border)] rounded-full py-2 px-4 mb-4 text-sm">
+            <span className="text-[var(--gold-d)] text-[13px] tracking-[0.5px]">
+              ★★★★★
+            </span>
+            <span className="text-[var(--t2)]">
+              <span className="font-bold text-[var(--t1)]">4.9 average</span>{" "}
+              · 340+ Google reviews
+            </span>
+          </div>
+
+          <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[var(--blue)] mb-2.5 block">
             Results
           </span>
           <h2 className="text-[clamp(22px,5.5vw,34px)] font-bold leading-[1.15] tracking-[-0.03em] mb-4">
-            What happens when your website actually does its job.
+            Real numbers from real businesses.
           </h2>
         </div>
 
@@ -49,11 +59,10 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={t.name}
-              className={`bg-[var(--bg-card)] border border-[var(--border)] rounded-[var(--rl)] py-[26px] px-[26px] pb-[22px] mb-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-700 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)] ${
-                isVisible
+              className={`bg-[var(--bg-card)] border border-[var(--border)] rounded-[var(--rl)] py-[26px] px-[26px] pb-[22px] mb-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-700 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)] ${isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-5"
-              }`}
+                }`}
               style={{ transitionDelay: `${100 + i * 100}ms` }}
             >
               <div className="text-[var(--gold)] text-sm tracking-[1.5px] mb-3">
@@ -63,7 +72,7 @@ export function Testimonials() {
                 className="text-base text-[var(--t2)] leading-[1.7] mb-4 tracking-[-0.01em] [&_strong]:font-semibold [&_strong]:text-[var(--t1)]"
                 dangerouslySetInnerHTML={{ __html: `"${t.quote}"` }}
               />
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 pt-3.5 border-t border-[var(--border-l)]">
                 <div className="w-[38px] h-[38px] rounded-full bg-[var(--blue-l)] flex items-center justify-center font-bold text-[13px] text-[var(--blue)] shrink-0">
                   {t.initials}
                 </div>

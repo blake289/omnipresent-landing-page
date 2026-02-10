@@ -9,10 +9,10 @@ const painStats = [
 ]
 
 const outcomes = [
-  "A premium site that builds trust the second it loads, better looking than 99% of your market",
+  "A premium site that builds trust the second it loads",
   "Missed calls get an automatic text back within 60 seconds",
-  "Every visitor captured and followed up with, even while you sleep",
-  "A dashboard showing every lead and exactly where it came from",
+  "Every visitor captured and followed up with — even while you sleep",
+  "A dashboard showing every lead and where it came from",
 ]
 
 export function Problem() {
@@ -22,9 +22,8 @@ export function Problem() {
     <section className="py-[72px] max-sm:py-[52px]">
       <div ref={ref} className="max-w-[680px] mx-auto px-6 max-sm:px-5">
         <div
-          className={`transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
+          className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
         >
           <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[var(--blue)] mb-2.5 inline-block">
             The problem
@@ -33,26 +32,20 @@ export function Problem() {
             You&apos;re paying for traffic that never converts.
           </h2>
           <p className="text-base text-[var(--t2)] leading-[1.75] tracking-[-0.01em] mb-2.5">
-            Someone searches for your service. They click. Your site loads and
-            it looks like it was built years ago. Slow, cluttered, hard to
-            navigate on a phone. They don&apos;t call. They hit the back button
-            and try the next result.
+            Someone searches for your service. They click through to your site.
+            It looks outdated, loads slowly, and isn&apos;t mobile-friendly.
+            They don&apos;t call — they hit back and try the next result.
           </p>
           <p className="text-base text-[var(--t2)] leading-[1.75] tracking-[-0.01em]">
-            You never even know they were there.
-          </p>
-          <p className="text-base text-[var(--t2)] leading-[1.75] tracking-[-0.01em] mt-2.5">
-            The ones who <em>do</em> try to call? Most of the time, nobody picks
-            up. No text back. No follow-up. That lead walks straight to whoever
-            answers first.
+            The ones who <em>do</em> call? Most of the time, nobody picks up.
+            No text back. No follow-up. That lead goes to whoever answers first.
           </p>
         </div>
 
         {/* Pain stats grid */}
         <div
-          className={`grid grid-cols-3 gap-3 mt-7 max-sm:grid-cols-1 max-sm:gap-2.5 transition-all duration-700 delay-100 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
+          className={`grid grid-cols-3 gap-3 mt-7 max-sm:grid-cols-1 max-sm:gap-2.5 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
         >
           {painStats.map((stat) => (
             <div
@@ -71,9 +64,8 @@ export function Problem() {
 
         {/* Outcome box */}
         <div
-          className={`bg-[var(--green-l)] border border-[var(--green-b)] rounded-[var(--rl)] py-[26px] px-7 mt-7 transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
+          className={`bg-[var(--green-l)] border border-[var(--green-b)] rounded-[var(--rl)] py-[26px] px-7 mt-7 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
         >
           <h3 className="text-lg font-bold mb-2.5 tracking-[-0.02em]">
             What if your website could fix all of this?
