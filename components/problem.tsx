@@ -1,98 +1,214 @@
-"use client"
-
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-
 const painStats = [
-  { num: "62%", label: "of calls to small businesses go unanswered" },
-  { num: "$2K+", label: "lost per lead that calls your competitor instead" },
-  { num: "5 sec", label: "before a visitor decides to stay or bounce" },
-]
-
-const outcomes = [
-  "A premium site that builds trust the second it loads, better looking than 99% of your market",
-  "Missed calls get an automatic text back within 60 seconds",
-  "Every visitor captured and followed up with, even while you sleep",
-  "A dashboard showing every lead and exactly where it came from",
+  { num: "60%+", label: "of plumbing website visitors leave without calling" },
+  { num: "$3K–$20K", label: "lost on every emergency job that goes to a competitor" },
+  { num: "78%", label: "of customers choose the business that responds first" },
 ]
 
 export function Problem() {
-  const { ref, isVisible } = useScrollAnimation(0.12)
-
   return (
-    <section className="py-[72px] max-sm:py-[52px]">
-      <div ref={ref} className="max-w-[680px] mx-auto px-6 max-sm:px-5">
-        <div
-          className={`transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
+    <section
+      style={{
+        background: "#FFFFFF",
+        borderTop: "1px solid #E2E8F0",
+      }}
+    >
+      <div
+        className="mx-auto max-w-[700px] pt-24 pb-20 px-6 max-md:pt-16 max-md:pb-14 max-[480px]:pt-12 max-[480px]:pb-10"
+      >
+        {/* Section label */}
+        <p
+          style={{
+            fontSize: 14,
+            fontWeight: 700,
+            textTransform: "uppercase",
+            letterSpacing: "0.14em",
+            color: "#DC2626",
+            marginBottom: 20,
+          }}
         >
-          <span className="text-[13px] font-semibold uppercase tracking-[0.08em] text-[var(--blue)] mb-2.5 inline-block">
-            The problem
-          </span>
-          <h2 className="text-[clamp(22px,5.5vw,34px)] font-bold leading-[1.15] tracking-[-0.03em] mb-4">
-            You&apos;re paying for traffic that never converts.
-          </h2>
-          <p className="text-base text-[var(--t2)] leading-[1.75] tracking-[-0.01em] mb-2.5">
-            Someone searches for your service. They click. Your site loads and
-            it looks like it was built years ago. Slow, cluttered, hard to
-            navigate on a phone. They don&apos;t call. They hit the back button
-            and try the next result.
-          </p>
-          <p className="text-base text-[var(--t2)] leading-[1.75] tracking-[-0.01em]">
-            You never even know they were there.
-          </p>
-          <p className="text-base text-[var(--t2)] leading-[1.75] tracking-[-0.01em] mt-2.5">
-            The ones who <em>do</em> try to call? Most of the time, nobody picks
-            up. No text back. No follow-up. That lead walks straight to whoever
-            answers first.
+          The Real Problem
+        </p>
+
+        {/* Headline */}
+        <h2
+          className="max-md:text-[28px] max-[480px]:text-[26px] max-md:tracking-[-0.01em]"
+          style={{
+            fontSize: 42,
+            fontWeight: 800,
+            lineHeight: 1.12,
+            letterSpacing: "-0.02em",
+            color: "#0F172A",
+            marginBottom: 40,
+          }}
+        >
+          Your Website Is Broken. And It&apos;s Costing You Thousands.
+        </h2>
+
+        {/* Story paragraph 1 */}
+        <p
+          style={{
+            fontSize: 17,
+            lineHeight: 1.75,
+            color: "#334155",
+            fontWeight: 400,
+            marginBottom: 24,
+          }}
+        >
+          A homeowner&apos;s water heater explodes at 11pm. They grab their
+          phone and search &ldquo;emergency plumber near me.&rdquo; Your ad
+          shows up. They click.
+        </p>
+
+        {/* Story paragraph 2 */}
+        <p
+          style={{
+            fontSize: 17,
+            lineHeight: 1.75,
+            color: "#334155",
+            fontWeight: 400,
+            marginBottom: 36,
+          }}
+        >
+          Your site takes 4 seconds to load. It looks like it was built in
+          2015. The phone number is buried. They hit back and try the next
+          result.
+        </p>
+
+        {/* Callout block 1 */}
+        <div
+          className="max-md:py-5 max-md:px-6 max-md:text-[16px]"
+          style={{
+            background: "#0F172A",
+            borderRadius: 8,
+            padding: "24px 32px",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+            marginBottom: 40,
+          }}
+        >
+          <p
+            style={{
+              fontSize: 18,
+              fontWeight: 600,
+              lineHeight: 1.55,
+              color: "#FFFFFF",
+              margin: 0,
+            }}
+          >
+            That&apos;s a $4,000 job. Gone in 5 seconds. They&apos;re already
+            calling your competitor.
           </p>
         </div>
 
-        {/* Pain stats grid */}
-        <div
-          className={`grid grid-cols-3 gap-3 mt-7 max-sm:grid-cols-1 max-sm:gap-2.5 transition-all duration-700 delay-100 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
+        {/* Bridge paragraph */}
+        <p
+          style={{
+            fontSize: 17,
+            lineHeight: 1.75,
+            color: "#334155",
+            fontWeight: 400,
+            marginBottom: 36,
+          }}
         >
+          And the ones who DO fill out your form? They wait. And wait. No
+          instant response. No text. By the time you see the lead,
+          they&apos;ve already called someone else.
+        </p>
+
+        {/* Callout block 2 */}
+        <div
+          className="max-md:py-5 max-md:px-6 max-md:text-[16px]"
+          style={{
+            background: "#0F172A",
+            borderRadius: 8,
+            padding: "24px 32px",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+            marginBottom: 40,
+          }}
+        >
+          <p
+            style={{
+              fontSize: 18,
+              fontWeight: 600,
+              lineHeight: 1.55,
+              color: "#FFFFFF",
+              margin: 0,
+            }}
+          >
+            Missed calls? Straight to voicemail. No callback. No follow-up.
+            Gone.
+          </p>
+        </div>
+
+        {/* Competitor paragraph */}
+        <p
+          style={{
+            fontSize: 17,
+            lineHeight: 1.75,
+            color: "#334155",
+            fontWeight: 400,
+            marginBottom: 56,
+          }}
+        >
+          Meanwhile, your competitor with 200 Google reviews shows up above
+          you in search. Every job you miss is a job—and a review—they get
+          instead.
+        </p>
+
+        {/* Stats grid */}
+        <div className="grid grid-cols-3 gap-5 max-md:grid-cols-1 max-md:gap-4">
           {painStats.map((stat) => (
             <div
               key={stat.num}
-              className="bg-[var(--red-l)] border border-[var(--red-b)] rounded-[var(--r)] py-[18px] px-5"
+              className="max-[480px]:py-7 max-[480px]:px-6"
+              style={{
+                background: "#FFF7F7",
+                border: "1px solid #FECACA",
+                borderRadius: 12,
+                padding: "32px 28px",
+              }}
             >
-              <div className="text-[26px] font-bold text-[var(--red)] tracking-[-0.02em] mb-0.5">
+              <div
+                className="max-md:text-[34px]"
+                style={{
+                  fontSize: 38,
+                  fontWeight: 800,
+                  lineHeight: 1.1,
+                  color: "#DC2626",
+                  marginBottom: 12,
+                }}
+              >
                 {stat.num}
               </div>
-              <div className="text-sm text-[var(--t2)] leading-[1.45]">
+              <div
+                style={{
+                  fontSize: 15,
+                  lineHeight: 1.5,
+                  fontWeight: 400,
+                  color: "#64748B",
+                }}
+              >
                 {stat.label}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Outcome box */}
-        <div
-          className={`bg-[var(--green-l)] border border-[var(--green-b)] rounded-[var(--rl)] py-[26px] px-7 mt-7 transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
+        {/* Bottom tagline */}
+        <p
+          style={{
+            fontSize: 17,
+            fontWeight: 500,
+            fontStyle: "italic",
+            color: "#64748B",
+            textAlign: "center",
+            marginTop: 48,
+          }}
         >
-          <h3 className="text-lg font-bold mb-2.5 tracking-[-0.02em]">
-            What if your website could fix all of this?
-          </h3>
-          <ul className="list-none p-0 m-0">
-            {outcomes.map((item) => (
-              <li
-                key={item}
-                className="text-[15px] text-[var(--t2)] py-1.5 pl-6 relative leading-[1.6]"
-              >
-                <span className="absolute left-0 text-[var(--green)] font-bold text-sm">
-                  ✓
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+          The problem isn&apos;t your ads. It&apos;s what happens after the
+          click.
+        </p>
       </div>
+
     </section>
   )
 }

@@ -2,13 +2,17 @@ import { TopBar } from "@/components/top-bar"
 import { Hero } from "@/components/hero"
 import { CredibilityStrip } from "@/components/credibility-strip"
 import { Problem } from "@/components/problem"
+import { UniqueMechanism } from "@/components/unique-mechanism"
 import { HowItWorks } from "@/components/how-it-works"
 import { Testimonials } from "@/components/social-proof"
+import { CaseStudy } from "@/components/case-study"
+import { ValueStack } from "@/components/value-stack"
+import { ObjectionHandling } from "@/components/objection-handling"
 import { FitSection } from "@/components/fit-section"
-import { FAQ } from "@/components/faq"
 import { FinalCTA } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
 import { StickyMobileCTA } from "@/components/sticky-mobile-cta"
+import { ExitIntentPopup } from "@/components/exit-intent-popup"
 
 export default function Page() {
   return (
@@ -17,17 +21,17 @@ export default function Page() {
       <Hero />
       <CredibilityStrip />
       <Problem />
-      <div className="h-px bg-[var(--border-l)]" />
+      <UniqueMechanism />
       <HowItWorks />
-      <div className="h-px bg-[var(--border-l)]" />
       <Testimonials />
-      <div className="h-px bg-[var(--border-l)]" />
+      <CaseStudy />
+      <ValueStack />
+      <ObjectionHandling />
       <FitSection />
-      <div className="h-px bg-[var(--border-l)]" />
-      <FAQ />
       <FinalCTA />
       <Footer />
       <StickyMobileCTA />
+      <ExitIntentPopup />
     </main>
   )
 }

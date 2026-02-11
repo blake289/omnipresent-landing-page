@@ -10,16 +10,16 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Free Smart Website in 48 Hours | Omnipresent",
+  title: "Plumber Websites That Book Emergency Jobs | Omnipresent",
   description:
-    "We build premium websites in 48 hours for free. You pay $297/mo for the system that turns visitors into phone calls.",
+    "We build plumbing websites in 48 hours that turn emergency searches into booked jobs. Free build. Missed-call text-back. You only pay if it works.",
   keywords: [
-    "smart website",
-    "small business website",
-    "San Diego web design",
-    "website that converts",
-    "missed call text-back",
-    "lead generation",
+    "plumber website",
+    "plumbing website design",
+    "plumber lead generation",
+    "emergency plumber website",
+    "plumbing marketing",
+    "missed call text back plumber",
   ],
 }
 

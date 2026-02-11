@@ -4,30 +4,53 @@ import { ArrowRight } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="pt-14 pb-0 text-center">
-      <div className="max-w-[680px] mx-auto px-6">
+    <section className="relative pt-16 pb-0 text-center overflow-hidden">
+      {/* Subtle radial glow behind hero */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[800px] h-[800px] rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(26,107,255,0.05) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="section-container max-w-[760px] relative z-10">
+        {/* Eyebrow */}
+        <div
+          className="mb-5 animate-up"
+          style={{ animationDelay: "0.05s" }}
+        >
+          <span className="inline-block text-[13px] font-semibold uppercase tracking-[1px] text-[#DC2626] bg-[#FEF2F2] border border-[#FECACA] rounded-full px-4 py-1.5">
+            For Plumbing Companies Only
+          </span>
+        </div>
+
+        {/* H1 */}
         <h1
-          className="text-[clamp(28px,7vw,46px)] font-bold leading-[1.12] tracking-[-0.04em] mb-4 animate-up"
+          className="h1 mb-6 text-balance animate-up"
           style={{ animationDelay: "0.1s" }}
         >
-          Your website is losing you customers.
-          <br />
-          <span className="text-[var(--blue)]">We fix that in 48 hours.</span>
+          Your Plumbing Website Is Losing You Jobs.{" "}
+          <span className="text-[var(--blue)]">
+            We Replace It in 48 Hours—Free.
+          </span>
         </h1>
 
+        {/* Subheadline */}
         <p
-          className="text-[clamp(16px,3.8vw,18px)] text-[var(--t2)] max-w-[540px] mx-auto mb-9 leading-[1.7] tracking-[-0.01em] animate-up"
+          className="body-lg text-[var(--t2)] max-w-[620px] mx-auto mb-10 animate-up"
           style={{ animationDelay: "0.2s" }}
         >
-          We replace your outdated site with a premium one that looks better
-          than 99% of your competitors and actually turns visitors into calls.
-          The build is free.
+          We build you a Smart Website that turns emergency searches into booked
+          calls—then automates everything that happens next. Instant lead
+          response. Missed-call text-back. Review requests on autopilot. You stay
+          on the job. The system handles the rest.
         </p>
 
         {/* VSL Placeholder */}
         <div
-          className="max-w-[600px] mx-auto mb-9 animate-up"
-          style={{ animationDelay: "0.3s" }}
+          className="max-w-[740px] mx-auto mb-10 animate-up"
+          style={{ animationDelay: "0.25s" }}
         >
           <div className="relative w-full pt-[56.25%] rounded-[var(--rl)] overflow-hidden bg-[var(--bg-dark)] border border-[var(--border)] shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
             <div className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer bg-gradient-to-br from-[#111] via-[#1a1a1a] to-[#0f0f0f] group">
@@ -40,45 +63,41 @@ export function Hero() {
                 </svg>
               </div>
               <span className="text-sm text-white/60 font-medium">
-                See how it works (2 min)
+                See how it works (2 min) →
               </span>
             </div>
           </div>
-          <p className="text-center text-[13px] text-[var(--t3)] mt-2.5">
-            Short version. Your time matters.
-          </p>
         </div>
 
-        {/* CTA */}
+        {/* Primary CTA */}
         <div
           className="flex flex-col items-center animate-up"
-          style={{ animationDelay: "0.4s" }}
+          style={{ animationDelay: "0.35s" }}
         >
-          <a
-            href="#book"
-            className="inline-flex items-center justify-center gap-2 bg-[var(--blue)] text-white text-base font-semibold py-4 px-[30px] rounded-[var(--r)] w-full max-w-[380px] tracking-[-0.01em] transition-all duration-200 hover:bg-[var(--blue-h)] hover:-translate-y-px shadow-[0_1px_3px_rgba(0,0,0,0.1),0_4px_14px_rgba(26,107,255,0.2)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.1),0_8px_24px_rgba(26,107,255,0.25)]"
-          >
-            Get My Free Smart Website
+          <a href="#book" className="btn-primary text-base w-full max-w-[400px]">
+            Book My Free Plumber Growth Call
             <ArrowRight className="w-4 h-4" />
           </a>
-          <div className="flex items-center justify-center gap-5 mt-3.5 text-[13px] text-[var(--t3)]">
-            <span className="inline-flex items-center gap-[5px]">
-              <span className="text-[var(--green)] font-bold text-[13px]">
-                ✓
-              </span>{" "}
-              $0 to start
+
+          {/* Micro-proof line */}
+          <p className="micro text-[#555] mt-4">
+            Most plumbing websites lose 60%+ of visitors before they call. Smart
+            Websites don&apos;t.
+          </p>
+
+          {/* Objection killers */}
+          <div className="flex items-center justify-center gap-5 mt-3 micro text-[var(--t2)] flex-wrap max-sm:gap-3">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="text-[var(--green)] font-bold">✓</span> $0 to
+              start
             </span>
-            <span className="inline-flex items-center gap-[5px]">
-              <span className="text-[var(--green)] font-bold text-[13px]">
-                ✓
-              </span>{" "}
-              No contracts to sign today
+            <span className="inline-flex items-center gap-1.5">
+              <span className="text-[var(--green)] font-bold">✓</span> No
+              contracts
             </span>
-            <span className="inline-flex items-center gap-[5px]">
-              <span className="text-[var(--green)] font-bold text-[13px]">
-                ✓
-              </span>{" "}
-              15-min call
+            <span className="inline-flex items-center gap-1.5">
+              <span className="text-[var(--green)] font-bold">✓</span> 30-day
+              money-back guarantee
             </span>
           </div>
         </div>

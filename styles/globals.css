@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    /* v8 design system */
+    /* Plumber landing page design system — 8px grid */
     --bg: #ffffff;
-    --bg-soft: #f8f8fa;
+    --bg-alt: #fafafb;
     --bg-card: #ffffff;
     --bg-muted: #f1f1f4;
     --bg-dark: #111113;
@@ -21,9 +21,10 @@
     --blue-l: #edf3ff;
     --blue-b: rgba(26, 107, 255, 0.12);
 
-    --green: #16a34a;
+    --green: #22c55e;
+    --green-d: #16a34a;
     --green-l: #edfcf2;
-    --green-b: rgba(22, 163, 74, 0.1);
+    --green-b: rgba(34, 197, 94, 0.1);
 
     --red: #dc2626;
     --red-l: #fef2f2;
@@ -32,12 +33,26 @@
     --gold: #f59e0b;
     --gold-d: #d97706;
 
-    --border: #e8e8ec;
+    --border: #eaeaea;
     --border-l: #f0f0f3;
 
-    --r: 10px;
-    --rl: 14px;
-    --rx: 18px;
+    --r: 12px;
+    --rl: 16px;
+    --rx: 20px;
+
+    /* Section spacing */
+    --section-py: 96px;
+    --section-gap: 128px;
+    --container-max: 1200px;
+    --px-desktop: 32px;
+    --px-tablet: 24px;
+    --px-mobile: 20px;
+
+    /* Button */
+    --btn-h: 56px;
+    --btn-px: 32px;
+    --btn-r: 12px;
+    --btn-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 
     /* shadcn compatibility */
     --background: 0 0% 100%;
@@ -56,16 +71,15 @@
     --accent-foreground: 240 6% 10%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 6% 90%;
     --input: 240 6% 90%;
     --ring: 220 90% 55%;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-[var(--border)];
   }
   html {
     scroll-behavior: smooth;
@@ -84,7 +98,116 @@
   }
 }
 
-/* Animations */
+/* ─── Typography System ─── */
+.h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.h2 {
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.h3 {
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+.body-lg {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.body {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.micro {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* ─── Section container ─── */
+.section-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--px-desktop);
+  padding-right: var(--px-desktop);
+}
+@media (max-width: 1024px) {
+  .section-container {
+    padding-left: var(--px-tablet);
+    padding-right: var(--px-tablet);
+  }
+}
+@media (max-width: 640px) {
+  .section-container {
+    padding-left: var(--px-mobile);
+    padding-right: var(--px-mobile);
+  }
+  .h1 {
+    font-size: clamp(28px, 8vw, 42px);
+  }
+  .h2 {
+    font-size: clamp(24px, 6vw, 34px);
+  }
+}
+
+/* ─── Primary CTA Button ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: var(--btn-h);
+  padding: 0 var(--btn-px);
+  border-radius: var(--btn-r);
+  background: var(--blue);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--btn-shadow);
+  transition: all 150ms ease-out;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: var(--blue-h);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ─── Section padding ─── */
+.section-pad {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+@media (max-width: 640px) {
+  .section-pad {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+/* ─── Eyebrow label ─── */
+.eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+/* ─── Animations ─── */
 @keyframes up {
   from {
     opacity: 0;
@@ -114,12 +237,11 @@
   animation: pulse-ring 2.4s ease infinite;
 }
 
-/* Reveal animation */
+/* Scroll reveal */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
-    transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
 }
 
 .reveal.visible {
