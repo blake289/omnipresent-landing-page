@@ -3,6 +3,8 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { ArrowRight } from "lucide-react"
 
+const avatarColors = ["#2563EB", "#16A34A", "#D97706"]
+
 const testimonials = [
   {
     metric: "System Paid for Itself in 11 Days",
@@ -37,18 +39,21 @@ export function Testimonials() {
   const { ref, isVisible } = useScrollAnimation(0.12)
 
   return (
-    <section className="section-pad bg-white">
-      <div ref={ref} className="section-container max-w-[1000px]">
+    <section
+      className="section-pad"
+      style={{ background: "var(--color-bg-dark)", paddingTop: 120, paddingBottom: 120 }}
+    >
+      <div ref={ref} className="section-container" style={{ maxWidth: "var(--content-max-width)" }}>
         <div
-          className={`text-center mb-10 transition-all duration-700 ${
+          className={`text-center mb-14 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
-          <span className="eyebrow text-[var(--blue)]">Proof</span>
-          <h2 className="h2 mb-4">
+          <span className="eyebrow" style={{ color: "var(--color-accent)" }}>Proof</span>
+          <h2 className="h2 mb-4" style={{ color: "var(--color-text-on-dark)" }}>
             What Happens When Your Website Actually Works
           </h2>
-          <p className="body-lg text-[var(--t2)]">
+          <p className="body-lg max-w-[560px] mx-auto" style={{ color: "var(--color-text-on-dark-muted)" }}>
             Real plumbing companies. Real results. System paid for itself in the
             first month.
           </p>
@@ -58,36 +63,55 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <div
               key={t.name}
-              className={`bg-white rounded-[var(--rl)] p-8 shadow-[0_15px_40px_rgba(0,0,0,0.06)] border border-[var(--border)] flex flex-col transition-all duration-700 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-5"
+              className={`flex flex-col transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
-              style={{ transitionDelay: `${100 + i * 100}ms` }}
+              style={{
+                background: "var(--color-bg-dark-card)",
+                border: "1px solid rgba(255,255,255,0.06)",
+                borderRadius: "var(--radius-lg)",
+                padding: "36px 32px",
+                transitionDelay: `${100 + i * 100}ms`,
+              }}
             >
               {/* Stars */}
-              <div className="text-[var(--gold)] text-sm tracking-[1.5px] mb-3">
+              <div className="text-[16px] tracking-[2px] mb-5" style={{ color: "#FBBF24" }}>
                 ★★★★★
               </div>
 
               {/* Metric headline */}
-              <div className="text-[20px] font-bold text-[var(--t1)] leading-tight mb-4">
+              <div
+                className="leading-tight mb-4"
+                style={{
+                  fontSize: 20,
+                  fontWeight: 700,
+                  color: "#FFFFFF",
+                }}
+              >
                 {t.metric}
               </div>
 
               {/* Quote */}
-              <p className="body text-[var(--t2)] leading-[1.7] mb-6 flex-1">
+              <p className="mb-6 flex-1" style={{ fontSize: 15, lineHeight: 1.7, color: "rgba(255,255,255,0.65)" }}>
                 &ldquo;{t.quote}&rdquo;
               </p>
 
               {/* Attribution */}
-              <div className="flex items-center gap-3 pt-4 border-t border-[var(--border)]">
-                <div className="w-[40px] h-[40px] rounded-full bg-[var(--blue-l)] flex items-center justify-center font-bold text-[13px] text-[var(--blue)] shrink-0">
+              <div className="flex items-center gap-3 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                <div
+                  className="flex items-center justify-center shrink-0 font-bold text-[13px] text-white"
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: "50%",
+                    background: avatarColors[i] || avatarColors[0],
+                  }}
+                >
                   {t.initials}
                 </div>
                 <div>
-                  <div className="text-sm font-semibold">{t.name}</div>
-                  <div className="text-xs text-[var(--t3)]">
+                  <div className="text-[15px] font-semibold text-white">{t.name}</div>
+                  <div className="text-[13px]" style={{ color: "rgba(255,255,255,0.5)" }}>
                     {t.role}
                     {t.location ? `, ${t.location}` : ""}
                   </div>
@@ -99,21 +123,27 @@ export function Testimonials() {
 
         {/* Trust microcopy */}
         <p
-          className={`text-center micro text-[#888] mt-8 transition-all duration-700 delay-300 ${
+          className={`text-center text-[13px] font-normal italic mt-10 transition-all duration-700 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
+          style={{ color: "rgba(255,255,255,0.35)" }}
         >
-          Real plumbing companies. Real numbers. Results vary by market and ad
-          spend.
+          Real plumbing companies. Real numbers. Results vary by market and ad spend.
         </p>
 
-        {/* ROI Callout Box */}
+        {/* Blue ROI Callout Box */}
         <div
-          className={`bg-[#F0FDF4] border border-[#22C55E] rounded-[var(--r)] py-6 px-8 mt-8 text-center transition-all duration-700 delay-300 ${
+          className={`max-w-[800px] mx-auto mt-12 text-center transition-all duration-700 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
+          style={{
+            background: "var(--color-accent)",
+            borderRadius: "var(--radius-lg)",
+            padding: "28px 40px",
+            boxShadow: "var(--shadow-blue-lg)",
+          }}
         >
-          <p className="body font-medium text-[var(--t1)]">
+          <p className="text-[17px] font-medium text-white" style={{ lineHeight: 1.6 }}>
             The average plumbing client sees the system pay for itself within the
             first 30 days. One recovered emergency call covers months of the
             service.
@@ -122,15 +152,15 @@ export function Testimonials() {
 
         {/* Section CTA */}
         <div
-          className={`text-center mt-10 transition-all duration-700 delay-300 ${
+          className={`text-center mt-12 transition-all duration-700 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
-          <a href="#book" className="btn-primary">
+          <a href="#book" className="btn-primary btn-primary-on-dark">
             Book My Free Plumber Growth Call
             <ArrowRight className="w-4 h-4" />
           </a>
-          <p className="micro text-[var(--t3)] mt-3">
+          <p className="micro mt-3" style={{ color: "var(--color-text-on-dark-muted)" }}>
             No contracts. No pressure. Just clarity.
           </p>
         </div>

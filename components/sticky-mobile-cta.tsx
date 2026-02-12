@@ -32,7 +32,8 @@ export function StickyMobileCTA() {
     >
       <a
         href="#book"
-        className="flex items-center justify-center gap-2.5 w-full h-full bg-[var(--blue)] text-white text-base font-semibold tracking-[-0.01em]"
+        className="flex items-center justify-center gap-2.5 w-full h-full text-white text-base font-semibold tracking-[-0.01em]"
+        style={{ background: "var(--color-accent)" }}
       >
         <Phone className="w-5 h-5" />
         Book Free Call

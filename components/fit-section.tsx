@@ -25,41 +25,51 @@ export function FitSection() {
   const { ref, isVisible } = useScrollAnimation(0.12)
 
   return (
-    <section className="section-pad bg-white">
-      <div ref={ref} className="section-container max-w-[900px]">
+    <section className="section-pad" style={{ background: "var(--color-bg-primary)" }}>
+      <div ref={ref} className="section-container" style={{ maxWidth: 880 }}>
         <div
-          className={`text-center mb-10 transition-all duration-700 ${
+          className={`text-center mb-12 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
-          <span className="eyebrow text-[var(--blue)]">Is This for You?</span>
+          <span className="eyebrow" style={{ color: "var(--color-text-muted)" }}>Is This for You?</span>
           <h2 className="h2 mb-4">
             This Works for Some Plumbing Companies. Not All.
           </h2>
-          <p className="body-lg text-[var(--t2)]">
+          <p className="body-lg" style={{ color: "var(--color-text-secondary)" }}>
             We&apos;d rather be upfront now than waste your time on a call.
           </p>
         </div>
 
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-700 delay-100 ${
+          className={`grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-700 delay-100 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
           {/* Good fit */}
-          <div className="rounded-[var(--rl)] p-8 bg-[var(--green-l)] border border-[var(--green-b)]">
-            <h3 className="text-base font-bold mb-5 flex items-center gap-2 text-[var(--green-d)]">
+          <div
+            style={{
+              background: "var(--color-success-light)",
+              border: "1px solid #BBF7D0",
+              borderRadius: "var(--radius-lg)",
+              padding: "40px 36px",
+              boxShadow: "var(--shadow-md)",
+            }}
+          >
+            <h3
+              className="mb-6 flex items-center gap-2.5"
+              style={{ fontSize: 16, fontWeight: 700, color: "var(--color-success)" }}
+            >
               <span className="text-lg">✅</span> Great Fit
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {goodFit.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 body text-[var(--t2)]"
+                  className="flex items-start gap-3 text-[15px]"
+                  style={{ lineHeight: 1.5, color: "var(--color-text-secondary)" }}
                 >
-                  <span className="text-[var(--green)] font-bold shrink-0 mt-0.5">
-                    ✓
-                  </span>
+                  <span className="font-bold shrink-0 mt-0.5" style={{ color: "var(--color-success)" }}>✓</span>
                   {item}
                 </li>
               ))}
@@ -67,19 +77,29 @@ export function FitSection() {
           </div>
 
           {/* Not fit */}
-          <div className="rounded-[var(--rl)] p-8 bg-[var(--red-l)] border border-[var(--red-b)]">
-            <h3 className="text-base font-bold mb-5 flex items-center gap-2 text-[var(--red)]">
+          <div
+            style={{
+              background: "var(--color-danger-light)",
+              border: "1px solid var(--color-danger-border)",
+              borderRadius: "var(--radius-lg)",
+              padding: "40px 36px",
+              boxShadow: "var(--shadow-md)",
+            }}
+          >
+            <h3
+              className="mb-6 flex items-center gap-2.5"
+              style={{ fontSize: 16, fontWeight: 700, color: "var(--color-danger)" }}
+            >
               <span className="text-lg">✕</span> Not a Fit
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {notFit.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 body text-[var(--t2)]"
+                  className="flex items-start gap-3 text-[15px]"
+                  style={{ lineHeight: 1.5, color: "var(--color-text-secondary)" }}
                 >
-                  <span className="text-[var(--red)] font-bold shrink-0 mt-0.5">
-                    ✕
-                  </span>
+                  <span className="font-bold shrink-0 mt-0.5" style={{ color: "var(--color-danger)" }}>✕</span>
                   {item}
                 </li>
               ))}
@@ -89,12 +109,12 @@ export function FitSection() {
 
         {/* ROI Reminder */}
         <p
-          className={`text-center body font-semibold mt-10 transition-all duration-700 delay-200 ${
+          className={`text-center text-[16px] font-semibold mt-12 transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
+          style={{ color: "var(--color-text-secondary)" }}
         >
-          $297/mo. One job covers the entire year. System pays for itself in 30
-          days or less.
+          One job can cover the entire year.
         </p>
 
         {/* Section CTA */}
@@ -107,7 +127,7 @@ export function FitSection() {
             Book My Free Plumber Growth Call
             <ArrowRight className="w-4 h-4" />
           </a>
-          <p className="micro text-[var(--t3)] mt-3">
+          <p className="micro mt-3" style={{ color: "var(--color-text-muted)" }}>
             No contracts. No pressure. Just clarity.
           </p>
         </div>

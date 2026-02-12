@@ -2,32 +2,12 @@
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
-function CheckIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      className="shrink-0"
-    >
-      <circle cx="8" cy="8" r="8" fill="rgba(34, 197, 94, 0.12)" />
-      <path
-        d="M5 8.5L7 10.5L11 6"
-        stroke="#16a34a"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
 const valuePoints = [
-  "Live in 48 hours",
-  "Instant text-back on every lead",
-  "Missed calls answered automatically",
-  "More 5-star reviews on autopilot",
+  "Generating leads in 48 hours",
+  "Every lead gets a response in seconds",
+  "No more lost revenue from missed calls",
+  "Reviews grow while you work",
+  "Built to rank on Google",
 ]
 
 const stats = [
@@ -40,96 +20,110 @@ export function CredibilityStrip() {
   const { ref, isVisible } = useScrollAnimation(0.1)
 
   return (
-    <section className="relative mt-16 overflow-hidden">
-      {/* Faint radial glow behind container */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full pointer-events-none opacity-[0.05]"
-        style={{
-          background:
-            "radial-gradient(ellipse, rgba(26,107,255,1) 0%, transparent 70%)",
-        }}
-      />
-
-      <div ref={ref} className="section-container relative z-10">
+    <div ref={ref}>
+      {/* ── Outcome pill tags ── */}
+      <div style={{ paddingTop: 40, paddingBottom: 0 }}>
         <div
-          className="relative rounded-[22px] bg-gradient-to-b from-[#fdfdfe] to-[#f3f5f9] py-14 px-12 max-sm:py-9 max-sm:px-5"
-          style={{
-            border: "1px solid rgba(0,0,0,0.06)",
-            boxShadow:
-              "0 2px 8px rgba(0,0,0,0.04), 0 8px 30px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.5)",
-          }}
+          className="section-container flex items-center justify-center flex-wrap max-sm:gap-x-3 max-sm:gap-y-3"
+          style={{ maxWidth: 1100, gap: "14px 18px" }}
         >
-          {/* Benefit pills */}
-          <div className="flex items-center justify-center gap-2.5 flex-wrap max-sm:gap-2.5 max-sm:gap-y-3">
-            {valuePoints.map((point, i) => (
-              <div
-                key={point}
-                className={`inline-flex items-center gap-2 rounded-full py-2.5 px-5 cursor-default transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_6px_16px_rgba(26,107,255,0.1)] hover:border-[rgba(26,107,255,0.18)] ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3"
-                }`}
-                style={{
-                  background: "rgba(26, 107, 255, 0.06)",
-                  border: "1px solid rgba(26, 107, 255, 0.1)",
-                  transitionDelay: isVisible ? `${i * 60}ms` : "0ms",
-                }}
+          {valuePoints.map((point, i) => (
+            <div
+              key={point}
+              className={`inline-flex items-center rounded-full cursor-default select-none transition-all duration-150 ease-out ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              }`}
+              style={{
+                padding: "12px 20px",
+                background: "#EEF4FF",
+                border: "1px solid #CBD5FF",
+                transitionDelay: isVisible ? `${i * 60}ms` : "0ms",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement
+                el.style.background = "#E0EAFF"
+                el.style.transform = "translateY(-1px)"
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement
+                el.style.background = "#EEF4FF"
+                el.style.transform = "translateY(0)"
+              }}
+            >
+              <span
+                className="max-sm:text-[14px]"
+                style={{ fontSize: 16, fontWeight: 500, color: "#1E3A8A" }}
               >
-                <CheckIcon />
-                <span className="text-[14px] font-semibold text-[#1a1a2e] leading-none">
-                  {point}
-                </span>
-              </div>
-            ))}
-          </div>
+                {point}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
 
-          {/* Divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-[#d8dce5] to-transparent my-11 max-sm:my-8" />
+      {/* ── Stats section ── */}
+      <div style={{ paddingTop: 64, paddingBottom: 64 }}>
+        {/* Context line above stats */}
+        <p
+          className={`text-center mb-10 transition-all duration-500 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+          }`}
+          style={{ fontSize: 14, fontWeight: 500, letterSpacing: "0.04em", color: "var(--color-text-muted)", textTransform: "uppercase" }}
+        >
+          Trusted by plumbers and contractors across the U.S.
+        </p>
 
-          {/* Stats row */}
-          <div className="grid grid-cols-3 gap-8 max-sm:grid-cols-1 max-sm:gap-7">
-            {stats.map((stat, i) => (
-              <div
-                key={stat.number}
-                className={`relative text-center transition-all duration-200 ease-out hover:-translate-y-[2px] cursor-default ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3"
-                }`}
-                style={{
-                  transitionDelay: isVisible ? `${200 + i * 80}ms` : "0ms",
-                }}
-              >
-                {/* Gradient vertical divider (desktop, not first) */}
-                {i > 0 && (
-                  <div
-                    className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-12 hidden sm:block"
-                    style={{
-                      background:
-                        "linear-gradient(to bottom, transparent, rgba(0,0,0,0.08), transparent)",
-                    }}
-                  />
-                )}
+        <div
+          className="section-container flex items-center justify-center max-sm:flex-col max-sm:gap-10"
+          style={{ gap: 80, maxWidth: 900 }}
+        >
+          {stats.map((stat, i) => (
+            <div key={stat.number} className="flex items-center max-sm:gap-0" style={{ gap: 80 }}>
+              {/* Vertical divider (desktop only, not first) */}
+              {i > 0 && (
                 <div
-                  className="text-[40px] font-[800] tracking-[-0.03em] leading-none"
+                  className="w-px shrink-0 max-sm:hidden"
                   style={{
-                    background:
-                      "linear-gradient(135deg, #111827 0%, #1a6bff 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    textShadow: "0 2px 12px rgba(26, 107, 255, 0.05)",
+                    height: 52,
+                    background: "linear-gradient(to bottom, transparent, #CBD5E1, transparent)",
+                  }}
+                />
+              )}
+              <div
+                className={`text-center transition-all duration-500 ease-out ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2.5"
+                }`}
+                style={{ transitionDelay: isVisible ? `${200 + i * 80}ms` : "0ms" }}
+              >
+                <div
+                  className="max-sm:text-[44px]"
+                  style={{
+                    fontSize: 68,
+                    fontWeight: 800,
+                    lineHeight: 1.1,
+                    letterSpacing: "-0.03em",
+                    color: "#0F172A",
                   }}
                 >
                   {stat.number}
                 </div>
-                <div className="text-[13px] font-medium text-[#7a7e91] mt-3.5 tracking-[0.02em] uppercase">
+                <div
+                  className="uppercase max-sm:text-[12px]"
+                  style={{
+                    fontSize: 15,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    color: "#64748B",
+                    marginTop: 8,
+                  }}
+                >
                   {stat.label}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }

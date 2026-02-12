@@ -18,10 +18,8 @@ export function ExitIntentPopup() {
   )
 
   useEffect(() => {
-    // Only on desktop
     if (window.innerWidth < 768) return
 
-    // Delay enabling exit intent to avoid false triggers
     const timer = setTimeout(() => {
       document.addEventListener("mouseleave", handleMouseLeave)
     }, 5000)
@@ -40,7 +38,6 @@ export function ExitIntentPopup() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!email.trim()) return
-    // TODO: Hook up to email capture endpoint
     dismiss()
   }
 
@@ -49,23 +46,39 @@ export function ExitIntentPopup() {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-5">
       {/* Overlay */}
-      <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-        onClick={dismiss}
-      />
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={dismiss} />
 
       {/* Popup */}
-      <div className="relative bg-white rounded-[var(--rx)] p-10 max-w-[480px] w-full shadow-[0_30px_80px_rgba(0,0,0,0.2)] text-center animate-up max-sm:p-6">
+      <div
+        className="relative w-full text-center animate-up max-sm:p-6"
+        style={{
+          maxWidth: 480,
+          background: "#FFFFFF",
+          borderRadius: "var(--radius-xl)",
+          padding: "44px 40px",
+          boxShadow: "var(--shadow-xl)",
+        }}
+      >
         <button
           onClick={dismiss}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-[var(--bg-muted)] text-[var(--t3)] hover:text-[var(--t1)] transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full transition-colors"
+          style={{ background: "var(--color-bg-cool)", color: "var(--color-text-tertiary)" }}
           aria-label="Close"
         >
           <X className="w-4 h-4" />
         </button>
 
-        <h3 className="h3 mb-3">Before you go—</h3>
-        <p className="body text-[var(--t2)] mb-6">
+        <h3
+          className="mb-3"
+          style={{
+            fontSize: 24,
+            fontWeight: 800,
+            color: "var(--color-text-primary)",
+          }}
+        >
+          Before you go—
+        </h3>
+        <p className="text-[16px] mb-6" style={{ lineHeight: 1.6, color: "var(--color-text-secondary)" }}>
           Get a free 2-minute audit of your current plumbing website.
           We&apos;ll show you exactly where you&apos;re losing leads (and what
           it&apos;s costing you).
@@ -78,7 +91,18 @@ export function ExitIntentPopup() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full h-[48px] px-4 bg-[var(--bg-alt)] border border-[var(--border)] rounded-[var(--r)] text-[var(--t1)] body mb-3 outline-none transition-all duration-200 focus:border-[var(--blue)] focus:shadow-[0_0_0_3px_rgba(26,107,255,0.1)] placeholder:text-[var(--t4)]"
+            className="w-full px-4 outline-none mb-4"
+            style={{
+              height: 52,
+              background: "#F8FAFC",
+              border: "1.5px solid var(--color-border-light)",
+              borderRadius: "var(--radius-md)",
+              fontSize: 16,
+              color: "var(--color-text-primary)",
+              transition: "border-color 200ms, box-shadow 200ms",
+            }}
+            onFocus={(e) => { e.target.style.borderColor = "var(--color-accent)"; e.target.style.boxShadow = "0 0 0 3px var(--color-accent-glow)" }}
+            onBlur={(e) => { e.target.style.borderColor = "var(--color-border-light)"; e.target.style.boxShadow = "none" }}
           />
           <button type="submit" className="btn-primary w-full">
             Send My Free Audit →
@@ -87,7 +111,8 @@ export function ExitIntentPopup() {
 
         <button
           onClick={dismiss}
-          className="mt-4 text-sm text-[var(--t4)] hover:text-[var(--t3)] transition-colors cursor-pointer bg-transparent border-none"
+          className="mt-4 text-sm transition-colors cursor-pointer bg-transparent border-none"
+          style={{ color: "var(--color-text-muted)" }}
         >
           No thanks, my website is perfect
         </button>
